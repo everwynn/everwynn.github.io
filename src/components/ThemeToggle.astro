@@ -1,0 +1,95 @@
+---
+/**
+ * 主题切换（浅色 → 深色 → 跟随系统）。
+ *
+ * 与 pulse-hub 保持一致的做法：
+ *  - 主题状态挂在 <html data-theme-mode>，apply() 由 BaseLayout 的 window.__stationTheme 提供；
+ *  - 用事件委托绑定所有 [data-theme-toggle]，多个按钮也不会状态不同步；
+ *  - 切换动效走 View Transitions 的圆形揭示（见 global.css 的 theme-reveal），
+ *    起点取被点击按钮的中心，不支持或用户要求减少动效时降级为瞬时切换。
+ */
+---
+
+<button
+  type="button"
+  data-theme-toggle
+  class="theme-toggle relative inline-flex h-9 w-9 items-center justify-center rounded-md border border-line text-muted transition-colors hover:border-ink/40 hover:text-ink"
+  aria-label="切换主题"
+  title="切换主题"
+>
+  <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"></circle>
+    <path stroke-linecap="round" d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6l1.4 1.4m10 10l1.4 1.4m0-12.8l-1.4 1.4m-10 10l-1.4 1.4"></path>
+  </svg>
+  <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20.7 15.9A8.6 8.6 0 0 1 10 3.3a9 9 0 1 0 10.7 12.6Z"></path>
+  </svg>
+  <svg class="theme-icon theme-icon-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+    <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+    <path stroke-linecap="round" d="M9 20h6m-3-4v4"></path>
+  </svg>
+</button>
+
+<script is:inline>
+  (function () {
+    // 页面可能渲染多个按钮，脚本只绑定一次，靠事件委托覆盖全部
+    if (window.__stationThemeBound) return;
+    window.__stationThemeBound = true;
+
+    var ORDER = ['light', 'dark', 'system'];
+    var LABEL = { light: '浅色', dark: '深色', system: '跟随系统' };
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function currentMode() {
+      return document.documentElement.getAttribute('data-theme-mode') || 'system';
+    }
+
+    function nextMode(mode) {
+      return ORDER[(ORDER.indexOf(mode) + 1) % ORDER.length];
+    }
+
+    function syncLabels() {
+      var mode = currentMode();
+      var next = nextMode(mode);
+      var buttons = document.querySelectorAll('[data-theme-toggle]');
+      Array.prototype.forEach.call(buttons, function (button) {
+        button.setAttribute(
+          'aria-label',
+          '切换主题：当前' + LABEL[mode] + '，点击切换到' + LABEL[next],
+        );
+        button.setAttribute('title', LABEL[mode] + ' · 点击切换到' + LABEL[next]);
+      });
+    }
+
+    function reveal(mode, x, y) {
+      var theme = window.__stationTheme;
+      if (!theme) return;
+      // 不支持 View Transitions 或用户要求减少动效时，瞬时切换
+      if (typeof document.startViewTransition !== 'function' || prefersReduced.matches) {
+        theme.apply(mode, true);
+        syncLabels();
+        return;
+      }
+      var root = document.documentElement;
+      root.style.setProperty('--theme-x', x + 'px');
+      root.style.setProperty('--theme-y', y + 'px');
+      var transition = document.startViewTransition(function () {
+        theme.apply(mode, true);
+      });
+      transition.finished.then(syncLabels, syncLabels);
+    }
+
+    document.addEventListener('click', function (event) {
+      var button = event.target.closest('[data-theme-toggle]');
+      if (!button) return;
+      var rect = button.getBoundingClientRect();
+      reveal(
+        nextMode(currentMode()),
+        rect.left + rect.width / 2,
+        rect.top + rect.height / 2,
+      );
+    });
+
+    syncLabels();
+  })();
+</script>

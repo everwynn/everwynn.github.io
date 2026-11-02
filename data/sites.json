@@ -1,0 +1,140 @@
+{
+  "updatedAt": "2026-11-02T16:00:50.331Z",
+  "sites": [
+    {
+      "id": "cs-lab",
+      "name": "CS Lab",
+      "url": "https://everwynn.github.io/cs-lab/",
+      "repo": "EverWynn/cs-lab",
+      "category": "learn",
+      "description": "算法、数据结构、设计模式与 Git 工作流的可视化学习站",
+      "tech": [
+        "Astro",
+        "Vue",
+        "Tailwind"
+      ],
+      "adapter": "commit",
+      "order": 10,
+      "lastCommitAt": "2026-08-18T03:36:47Z",
+      "dataUpdatedAt": null,
+      "status": "ok",
+      "statusLabel": "正常",
+      "statusDetail": null,
+      "summary": null
+    },
+    {
+      "id": "lucky-hub",
+      "name": "Lucky Hub",
+      "url": "https://everwynn.github.io/lucky-hub/",
+      "repo": "EverWynn/lucky-hub",
+      "category": "data",
+      "description": "福彩双色球开奖数据与选号站",
+      "tech": [
+        "Astro",
+        "Vue",
+        "Tailwind"
+      ],
+      "adapter": "lucky",
+      "order": 20,
+      "lastCommitAt": "2026-10-31T17:11:05Z",
+      "dataUpdatedAt": "2026-10-29T17:51:29.169Z",
+      "status": "error",
+      "statusLabel": "抓取失败",
+      "statusDetail": "HTTP 403 Forbidden · 最近成功 10-30",
+      "summary": {
+        "label": "第 2026124 期",
+        "detail": "共 2082 期"
+      }
+    },
+    {
+      "id": "pulse-hub",
+      "name": "Pulse Hub",
+      "url": "https://everwynn.github.io/pulse-hub/",
+      "repo": "EverWynn/pulse-hub",
+      "category": "data",
+      "description": "AI、技术社区与财经三频道的行业头条聚合站",
+      "tech": [
+        "Astro",
+        "Tailwind",
+        "Pagefind"
+      ],
+      "adapter": "pulse",
+      "order": 30,
+      "lastCommitAt": "2026-11-02T13:38:46Z",
+      "dataUpdatedAt": "2026-11-02T13:38:40.112Z",
+      "status": "ok",
+      "statusLabel": "19/22 源正常",
+      "statusDetail": null,
+      "summary": {
+        "label": "19/22 源正常",
+        "detail": "今日 108 条"
+      }
+    },
+    {
+      "id": "repo-rank",
+      "name": "Repo Rank",
+      "url": "https://everwynn.github.io/repo-rank/",
+      "repo": "EverWynn/repo-rank",
+      "category": "data",
+      "description": "按语言、书籍与音频分类的 GitHub 仓库 star 排行榜",
+      "tech": [
+        "Astro",
+        "Tailwind",
+        "Pagefind"
+      ],
+      "adapter": "repo-rank",
+      "order": 40,
+      "lastCommitAt": "2026-11-02T12:43:24Z",
+      "dataUpdatedAt": "2026-11-02T12:36:51.365Z",
+      "status": "ok",
+      "statusLabel": "92 次查询 · 0 失败",
+      "statusDetail": null,
+      "summary": {
+        "label": "92 次查询",
+        "detail": "30 个分类"
+      }
+    },
+    {
+      "id": "stroke-annotation-tool",
+      "name": "Stroke Annotation Tool",
+      "url": "https://everwynn.github.io/stroke-annotation-tool/",
+      "repo": "EverWynn/stroke-annotation-tool",
+      "category": "tool",
+      "description": "在 SVG 上标注汉字笔画并生成轮廓数据的前端工具",
+      "tech": [
+        "Vue",
+        "Vite",
+        "Tailwind"
+      ],
+      "adapter": "commit",
+      "order": 50,
+      "lastCommitAt": "2026-10-02T18:17:01Z",
+      "dataUpdatedAt": null,
+      "status": "ok",
+      "statusLabel": "正常",
+      "statusDetail": null,
+      "summary": null
+    },
+    {
+      "id": "whimsy-hub",
+      "name": "Whimsy Hub",
+      "url": "https://everwynn.github.io/whimsy-hub/",
+      "repo": "EverWynn/whimsy-hub",
+      "category": "experience",
+      "description": "以传统节日为主题的互动祝福体验站",
+      "tech": [
+        "Astro",
+        "Vue",
+        "GSAP"
+      ],
+      "adapter": "commit",
+      "order": 60,
+      "lastCommitAt": "2026-08-19T15:57:59Z",
+      "dataUpdatedAt": null,
+      "status": "ok",
+      "statusLabel": "正常",
+      "statusDetail": null,
+      "summary": null
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+---
+interface Props {
+  categories: { id: string; label: string; count: number }[];
+  total: number;
+}
+
+const { categories, total } = Astro.props;
+
+const baseClass =
+  'inline-flex h-8 items-center rounded-full px-3 text-xs font-medium text-muted transition-colors hover:text-ink aria-pressed:bg-ink aria-pressed:text-canvas aria-pressed:hover:text-canvas';
+---
+
+<div class="flex flex-wrap items-center gap-1" role="group" aria-label="按分类筛选">
+  <button type="button" class={baseClass} data-filter="all" aria-pressed="true">
+    全部<span class="ml-1.5 font-mono text-[11px] opacity-70">{total}</span>
+  </button>
+  {categories.map((category) => (
+    <button type="button" class={baseClass} data-filter={category.id} aria-pressed="false">
+      {category.label}<span class="ml-1.5 font-mono text-[11px] opacity-70">{category.count}</span>
+    </button>
+  ))}
+</div>

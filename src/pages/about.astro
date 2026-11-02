@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getSites, getUpdatedAt } from '../lib/sites';
+import { formatAbsolute } from '../lib/format';
+
+const sites = getSites();
+const updatedAt = getUpdatedAt();
+---
+
+<BaseLayout
+  title="关于"
+  description="EverWynn Station 的定位、数据来源、状态口径与隐私说明。"
+>
+  <article class="mx-auto max-w-content px-4 py-10 sm:px-6 sm:py-14">
+    <h1 class="text-2xl font-semibold tracking-tight sm:text-3xl">关于</h1>
+    <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+      EverWynn Station（维恩总站）是个人站点的统一入口：把散落在 GitHub Pages 上的学习站、数据站与工具站收在一处，
+      同时展示每个站点当前的运行状态与数据新鲜度。
+    </p>
+
+    <section class="mt-10">
+      <h2 class="text-base font-semibold tracking-tight">收录的站点</h2>
+      <ul class="mt-3 divide-y divide-line rounded-lg border border-line bg-surface">
+        {sites.map((site) => (
+          <li class="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+            <span class="text-sm font-medium">{site.name}</span>
+            <a
+              href={site.url}
+              class="font-mono text-[11px] text-muted transition-colors hover:text-ink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {site.url.replace('https://', '')}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-base font-semibold tracking-tight">数据来源</h2>
+      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+        门户不保存任何业务数据，只读取各站点仓库中的公开文件：数据站读取 <code class="font-mono text-xs">data/meta.json</code>、
+        <code class="font-mono text-xs">data/health.json</code> 与 <code class="font-mono text-xs">data/index.json</code>，
+        其余站点读取仓库最近提交时间。仓库信息来自 GitHub API，文件内容优先读取 raw 源，失败时回退到 GitHub Contents API。
+      </p>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-base font-semibold tracking-tight">状态口径</h2>
+      <div class="mt-3 overflow-x-auto rounded-lg border border-line">
+        <table class="w-full min-w-[560px] border-collapse text-left text-sm">
+          <thead class="bg-surface text-xs text-muted">
+            <tr>
+              <th class="px-4 py-2 font-medium">站点</th>
+              <th class="px-4 py-2 font-medium">正常</th>
+              <th class="px-4 py-2 font-medium">需关注</th>
+              <th class="px-4 py-2 font-medium">异常</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-line">
+            <tr>
+              <td class="px-4 py-2">Pulse Hub</td>
+              <td class="px-4 py-2 text-muted">全部源成功且 7 天内更新</td>
+              <td class="px-4 py-2 text-muted">有源失败，或 8–30 天未更新</td>
+              <td class="px-4 py-2 text-muted">无可用信息源，或超过 30 天</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2">Repo Rank</td>
+              <td class="px-4 py-2 text-muted">全部查询成功且 7 天内更新</td>
+              <td class="px-4 py-2 text-muted">部分查询失败，或 8–30 天未更新</td>
+              <td class="px-4 py-2 text-muted">全部查询失败，或超过 30 天</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2">Lucky Hub</td>
+              <td class="px-4 py-2 text-muted">抓取成功且 14 天内更新</td>
+              <td class="px-4 py-2 text-muted">15–45 天未更新</td>
+              <td class="px-4 py-2 text-muted">最近一次抓取失败，或超过 45 天</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-2">学习 / 工具 / 体验站</td>
+              <td class="px-4 py-2 text-muted">最近提交在 90 天内</td>
+              <td class="px-4 py-2 text-muted">超过 90 天未提交</td>
+              <td class="px-4 py-2 text-muted">仓库信息请求失败时为未知</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+        单站抓取失败不会影响其他站点：门户保留该站上一轮的展示数据，并把状态标为「未知」。
+        任何站点在无法获取数据、也没有历史记录时同样显示「未知」。
+        Lucky Hub 的官方开奖接口对海外 IP 返回 403，因此它的数据只能在本机手动更新，状态长期可能显示「抓取失败」。
+      </p>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-base font-semibold tracking-tight">更新频率</h2>
+      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+        门户每天自动刷新两次（北京时间 07:17 与 19:17），也可以在 GitHub Actions 中手动触发。
+        本轮门户数据更新于 <time datetime={updatedAt}>{formatAbsolute(updatedAt)}</time>。数据没有变化时不会产生新的提交。
+      </p>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-base font-semibold tracking-tight">隐私</h2>
+      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+        门户没有账号系统，不收集访问数据，不加载第三方统计脚本。主题与筛选偏好仅保存在浏览器
+        <code class="font-mono text-xs">localStorage</code> 的 <code class="font-mono text-xs">station:</code> 前缀键中，
+        清除浏览器数据即可移除。
+      </p>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-base font-semibold tracking-tight">免责声明</h2>
+      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+        本页展示的状态与时间均由自动抓取得到，可能与源站点实际情况存在延迟或偏差，请以各站点页面为准。
+        站点链接均指向公开的 GitHub Pages 页面，内容版权归各自项目所有。
+      </p>
+    </section>
+
+    <p class="mt-12 text-xs text-muted">
+      <a href={import.meta.env.BASE_URL} class="underline decoration-line underline-offset-4 transition-colors hover:text-ink">返回站点总览</a>
+    </p>
+  </article>
+</BaseLayout>

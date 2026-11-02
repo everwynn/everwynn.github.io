@@ -1,0 +1,51 @@
+---
+import StatusBadge from './StatusBadge.astro';
+import { CATEGORY_LABELS, type SiteEntry } from '../lib/sites';
+import { formatRelative } from '../lib/format';
+
+interface Props {
+  site: SiteEntry;
+}
+
+const { site } = Astro.props;
+const categoryLabel = CATEGORY_LABELS[site.category];
+const isDataSite = site.category === 'data';
+const timeLabel = isDataSite ? '数据截止' : '最近更新';
+const timeValue = isDataSite ? site.dataUpdatedAt : site.lastCommitAt;
+const tech = site.tech.slice(0, 2).join(' · ');
+const haystack = [site.name, site.description, categoryLabel, site.tech.join(' ')]
+  .join(' ')
+  .toLowerCase();
+---
+
+<article
+  class="relative flex h-full flex-col rounded-xl border border-line bg-surface p-5 transition duration-150 ease-out hover:-translate-y-px hover:border-ink/20"
+  data-site-card
+  data-category={site.category}
+  data-search={haystack}
+>
+  <div class="flex items-center justify-between gap-3">
+    <span class="text-[11px] text-muted">{categoryLabel}</span>
+    <StatusBadge status={site.status} label={site.statusLabel} detail={site.statusDetail} />
+  </div>
+
+  <h3 class="mt-3 text-[17px] font-semibold leading-snug tracking-tight">{site.name}</h3>
+  <p class="mt-2 line-clamp-2 text-sm leading-relaxed text-muted">{site.description}</p>
+
+  <div class="mt-auto flex items-center justify-between gap-3 pt-5 text-xs text-muted">
+    <span class="whitespace-nowrap">
+      {timeLabel}
+      <time datetime={timeValue ?? undefined}>{formatRelative(timeValue)}</time>
+    </span>
+    <span class="truncate font-mono text-xs text-muted">{tech}</span>
+  </div>
+
+  <a
+    href={site.url}
+    class="absolute inset-0 rounded-xl focus-visible:outline-offset-4"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <span class="sr-only">打开 {site.name}（新窗口）</span>
+  </a>
+</article>

@@ -1,0 +1,67 @@
+name: Deploy Station
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 23 * * *'
+    - cron: '17 11 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  # 不要中途取消 Pages 部署：取消进行中的部署会留下 canceled 状态
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.DATA_PUSH_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm test
+
+      - run: npm run check
+
+      - run: npm run fetch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit data if changed
+        run: |
+          if git diff --quiet -- data/; then
+            echo "数据无变化"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/
+            # [skip ci]：即使配了 DATA_PUSH_TOKEN，也不因这次数据提交再触发一轮部署
+            git commit -m "chore(data): refresh station status [skip ci]"
+            git push
+          fi
+
+      - run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

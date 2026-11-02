@@ -1,0 +1,31 @@
+---
+import type { SiteStatus } from '../lib/sites';
+
+interface Props {
+  status: SiteStatus;
+  label: string;
+  detail?: string | null;
+}
+
+const { status, label, detail } = Astro.props;
+
+const dots: Record<SiteStatus, string> = {
+  ok: 'bg-ok',
+  warn: 'bg-warn',
+  error: 'bg-danger',
+  unknown: 'bg-muted/60',
+};
+
+const texts: Record<SiteStatus, string> = {
+  ok: 'text-muted',
+  warn: 'text-warn',
+  error: 'text-danger',
+  unknown: 'text-muted',
+};
+---
+
+<span class="inline-flex items-center gap-1.5 text-[11px] leading-none" title={detail ?? undefined}>
+  <span class:list={['h-1.5 w-1.5 shrink-0 rounded-full', dots[status]]} aria-hidden="true"></span>
+  <span class={texts[status]}>{label}</span>
+  {detail && <span class="sr-only">：{detail}</span>}
+</span>
