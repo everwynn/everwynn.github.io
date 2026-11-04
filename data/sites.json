@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T13:30:16.064Z",
+  "updatedAt": "2026-11-04T03:02:44.489Z",
   "sites": [
     {
       "id": "cs-lab",
@@ -36,14 +36,14 @@
       ],
       "adapter": "lucky",
       "order": 20,
-      "lastCommitAt": "2026-10-31T17:11:05Z",
-      "dataUpdatedAt": "2026-10-29T17:51:29.169Z",
-      "status": "error",
-      "statusLabel": "异常",
-      "statusDetail": "HTTP 403 Forbidden · 最近成功 10-30",
+      "lastCommitAt": "2026-11-04T02:22:02Z",
+      "dataUpdatedAt": "2026-11-04T00:00:45.472Z",
+      "status": "ok",
+      "statusLabel": "第 2026126 期",
+      "statusDetail": "最近成功 11-04",
       "summary": {
-        "label": "第 2026124 期",
-        "detail": "共 2082 期"
+        "label": "第 2026126 期",
+        "detail": "共 2084 期"
       }
     },
     {
@@ -60,14 +60,14 @@
       ],
       "adapter": "pulse",
       "order": 30,
-      "lastCommitAt": "2026-11-03T06:44:14Z",
-      "dataUpdatedAt": "2026-11-03T06:44:05.557Z",
+      "lastCommitAt": "2026-11-03T16:13:52Z",
+      "dataUpdatedAt": "2026-11-03T16:13:42.107Z",
       "status": "ok",
-      "statusLabel": "正常",
+      "statusLabel": "19/22 源正常",
       "statusDetail": null,
       "summary": {
         "label": "19/22 源正常",
-        "detail": "今日 104 条"
+        "detail": "今日 15 条"
       }
     },
     {
@@ -84,10 +84,10 @@
       ],
       "adapter": "repo-rank",
       "order": 40,
-      "lastCommitAt": "2026-11-03T04:03:12Z",
-      "dataUpdatedAt": "2026-11-03T03:56:54.834Z",
+      "lastCommitAt": "2026-11-03T18:35:45Z",
+      "dataUpdatedAt": "2026-11-03T18:28:51.125Z",
       "status": "ok",
-      "statusLabel": "正常",
+      "statusLabel": "92 次查询 · 0 失败",
       "statusDetail": null,
       "summary": {
         "label": "92 次查询",
