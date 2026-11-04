@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T05:00:10.648Z",
+  "updatedAt": "2026-11-04T18:11:33.037Z",
   "sites": [
     {
       "id": "cs-lab",
@@ -67,7 +67,7 @@
       "statusDetail": null,
       "summary": {
         "label": "19/22 源正常",
-        "detail": "今日 15 条"
+        "detail": "今日 24 条"
       }
     },
     {
@@ -84,8 +84,8 @@
       ],
       "adapter": "repo-rank",
       "order": 40,
-      "lastCommitAt": "2026-11-03T18:35:45Z",
-      "dataUpdatedAt": "2026-11-03T18:28:51.125Z",
+      "lastCommitAt": "2026-11-04T03:08:33Z",
+      "dataUpdatedAt": "2026-11-04T03:02:17.063Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
@@ -149,12 +149,15 @@
       ],
       "adapter": "tech-radar",
       "order": 70,
-      "lastCommitAt": null,
-      "dataUpdatedAt": null,
-      "status": "unknown",
-      "statusLabel": "未知",
-      "statusDetail": "缺少 radar.json",
-      "summary": null
+      "lastCommitAt": "2026-11-04T18:07:21Z",
+      "dataUpdatedAt": "2026-11-04T17:36:50.615Z",
+      "status": "ok",
+      "statusLabel": "正常",
+      "statusDetail": null,
+      "summary": {
+        "label": "10 项技术",
+        "detail": "5 项有 EOL · 4 项可查漏洞"
+      }
     }
   ]
 }
