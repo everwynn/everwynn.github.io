@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T03:02:44.489Z",
+  "updatedAt": "2026-11-04T05:00:10.648Z",
   "sites": [
     {
       "id": "cs-lab",
@@ -39,7 +39,7 @@
       "lastCommitAt": "2026-11-04T02:22:02Z",
       "dataUpdatedAt": "2026-11-04T00:00:45.472Z",
       "status": "ok",
-      "statusLabel": "第 2026126 期",
+      "statusLabel": "正常",
       "statusDetail": "最近成功 11-04",
       "summary": {
         "label": "第 2026126 期",
@@ -63,7 +63,7 @@
       "lastCommitAt": "2026-11-03T16:13:52Z",
       "dataUpdatedAt": "2026-11-03T16:13:42.107Z",
       "status": "ok",
-      "statusLabel": "19/22 源正常",
+      "statusLabel": "正常",
       "statusDetail": null,
       "summary": {
         "label": "19/22 源正常",
@@ -84,10 +84,10 @@
       ],
       "adapter": "repo-rank",
       "order": 40,
-      "lastCommitAt": "2026-11-03T18:35:45Z",
-      "dataUpdatedAt": "2026-11-03T18:28:51.125Z",
+      "lastCommitAt": "2026-11-04T03:08:33Z",
+      "dataUpdatedAt": "2026-11-04T03:02:17.063Z",
       "status": "ok",
-      "statusLabel": "92 次查询 · 0 失败",
+      "statusLabel": "正常",
       "statusDetail": null,
       "summary": {
         "label": "92 次查询",
