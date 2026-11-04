@@ -8,6 +8,7 @@ import { adaptCommit } from './adapters/commit.mjs';
 import { adaptPulse } from './adapters/pulse.mjs';
 import { adaptRepoRank } from './adapters/repo-rank.mjs';
 import { adaptLucky } from './adapters/lucky.mjs';
+import { adaptTechRadar } from './adapters/tech-radar.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA_DIR = resolve(ROOT, 'data');
@@ -19,6 +20,7 @@ const ADAPTERS = {
   pulse: adaptPulse,
   'repo-rank': adaptRepoRank,
   lucky: adaptLucky,
+  'tech-radar': adaptTechRadar,
 };
 
 const DATA_FILES = {
@@ -26,6 +28,7 @@ const DATA_FILES = {
   pulse: ['data/health.json', 'data/index.json'],
   'repo-rank': ['data/meta.json', 'data/health.json', 'data/index.json'],
   lucky: ['data/meta.json', 'data/health.json'],
+  'tech-radar': ['data/catalog.json'],
 };
 
 const sleep = (ms) => new Promise((done) => setTimeout(done, ms));

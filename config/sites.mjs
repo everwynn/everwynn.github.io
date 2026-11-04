@@ -65,4 +65,15 @@ export const sites = [
     adapter: 'commit',
     order: 60,
   },
+  {
+    id: 'tech-radar',
+    name: 'Tech Radar',
+    url: 'https://everwynn.github.io/tech-radar/',
+    repo: 'EverWynn/tech-radar',
+    category: 'tool',
+    description: '技术栈版本、EOL 与已知漏洞的每日核对看板',
+    tech: ['Astro', 'Tailwind'],
+    adapter: 'tech-radar',
+    order: 70,
+  },
 ];

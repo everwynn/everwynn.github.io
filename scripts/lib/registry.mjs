@@ -1,5 +1,5 @@
 const CATEGORIES = new Set(['learn', 'data', 'tool', 'experience']);
-const ADAPTERS = new Set(['commit', 'pulse', 'repo-rank', 'lucky']);
+const ADAPTERS = new Set(['commit', 'pulse', 'repo-rank', 'lucky', 'tech-radar']);
 
 export function validateSites(sites) {
   if (!Array.isArray(sites) || sites.length === 0) throw new Error('站点注册表不能为空');

@@ -15,6 +15,7 @@
 | [Pulse Hub](https://everwynn.github.io/pulse-hub/) | 数据 | `data/health.json`、`data/index.json` |
 | [Repo Rank](https://everwynn.github.io/repo-rank/) | 数据 | `data/meta.json`、`data/health.json`、`data/index.json` |
 | [Stroke Annotation Tool](https://everwynn.github.io/stroke-annotation-tool/) | 工具 | 仓库最近提交 |
+| [Tech Radar](https://everwynn.github.io/tech-radar/) | 工具 | `data/catalog.json` |
 | [Whimsy Hub](https://everwynn.github.io/whimsy-hub/) | 体验 | 仓库最近提交 |
 
 ## 设计原则
@@ -33,7 +34,7 @@
 | 样式 | Tailwind CSS 3.4 + CSS 变量语义色，`darkMode: 'class'` |
 | 语言 | TypeScript 5.6（`astro check`） |
 | 运行时 | Node.js ≥ 20.6 |
-| 测试 | `node --test`，覆盖注册表、新鲜度、合并与 adapter，共 25 例 |
+| 测试 | `node --test`，覆盖注册表、新鲜度、合并与 adapter，共 33 例 |
 | 部署 | GitHub Actions → GitHub Pages |
 
 ## 快速开始
@@ -73,6 +74,7 @@ npm run preview   # 预览构建产物
 | `pulse` | `data/health.json`、`data/index.json` | 信息源成功率 + 7 / 30 天新鲜度 |
 | `repo-rank` | `data/meta.json`、`data/health.json`、`data/index.json` | 查询成功率 + 7 / 30 天新鲜度 |
 | `lucky` | `data/meta.json`、`data/health.json` | 最近一次抓取结果 + 14 / 45 天新鲜度 |
+| `tech-radar` | `data/catalog.json` | 数据源状态 + 缺失项 + 3 / 7 天新鲜度 |
 
 ### 状态口径
 
@@ -81,6 +83,7 @@ npm run preview   # 预览构建产物
 | Pulse Hub | 全部源成功且 7 天内更新 | 有源失败，或 8–30 天 | 无可用源，或超过 30 天 |
 | Repo Rank | 全部查询成功且 7 天内更新 | 部分失败，或 8–30 天 | 全部失败，或超过 30 天 |
 | Lucky Hub | 抓取成功且 14 天内更新 | 15–45 天 | 最近一次失败，或超过 45 天 |
+| Tech Radar | 数据源全成功、无缺失项且 3 天内更新 | 有源失败 / 有沿用上次，或 4–7 天 | 有缺失项，或超过 7 天 |
 | 其他站点 | 仓库可读即正常 | — | —（提交时间不参与判定） |
 
 无法获取数据且没有历史记录时显示「未知」；有历史记录则保留旧数据，只把状态降级为「未知」并附原因。

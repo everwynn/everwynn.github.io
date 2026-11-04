@@ -4,6 +4,7 @@ import { adaptCommit } from '../scripts/adapters/commit.mjs';
 import { adaptPulse } from '../scripts/adapters/pulse.mjs';
 import { adaptRepoRank } from '../scripts/adapters/repo-rank.mjs';
 import { adaptLucky } from '../scripts/adapters/lucky.mjs';
+import { adaptTechRadar } from '../scripts/adapters/tech-radar.mjs';
 
 const NOW = new Date('2026-11-02T00:00:00.000Z');
 const daysAgo = (n) => new Date(NOW.getTime() - n * 86400000).toISOString();
@@ -164,4 +165,89 @@ test('lucky: 20 天为需关注', () => {
     },
   }, NOW);
   assert.equal(result.status, 'warn');
+});
+
+const catalogItem = (overrides = {}) => ({
+  id: 'a',
+  latest: '1.0.0',
+  cycles: [{ cycle: '1', latest: '1.0.0', eol: '2030-01-01' }],
+  versions: [],
+  osv: null,
+  ...overrides,
+});
+
+const catalogFile = (items, overrides = {}) => ({
+  updatedAt: daysAgo(1),
+  sources: { endoflife: 'ok', npm: 'ok' },
+  items,
+  ...overrides,
+});
+
+test('tech-radar: 数据完整为正常', () => {
+  const result = adaptTechRadar({
+    pushedAt: daysAgo(1),
+    files: {
+      'data/catalog.json': catalogFile([
+        catalogItem(),
+        catalogItem({ id: 'b', osv: { ecosystem: 'npm', package: 'x' } }),
+      ]),
+    },
+  }, NOW);
+  assert.equal(result.status, 'ok');
+  assert.equal(result.statusLabel, '正常');
+  assert.equal(result.statusDetail, null);
+  assert.equal(result.summary.label, '2 项技术');
+  assert.equal(result.summary.detail, '2 项有 EOL · 1 项可查漏洞');
+});
+
+test('tech-radar: 数据源异常为需关注', () => {
+  const result = adaptTechRadar({
+    pushedAt: daysAgo(1),
+    files: {
+      'data/catalog.json': catalogFile([catalogItem()], { sources: { npm: 'ok', endoflife: 'error' } }),
+    },
+  }, NOW);
+  assert.equal(result.status, 'warn');
+  assert.equal(result.statusDetail, '1 个数据源异常');
+});
+
+test('tech-radar: 有项未取到版本为异常', () => {
+  const result = adaptTechRadar({
+    pushedAt: daysAgo(1),
+    files: {
+      'data/catalog.json': catalogFile([catalogItem(), catalogItem({ id: 'b', latest: null, cycles: [] })]),
+    },
+  }, NOW);
+  assert.equal(result.status, 'error');
+  assert.equal(result.statusDetail, '1 项未取到版本数据');
+});
+
+test('tech-radar: 有项沿用上次数据为需关注', () => {
+  const result = adaptTechRadar({
+    pushedAt: daysAgo(1),
+    files: {
+      'data/catalog.json': catalogFile([catalogItem({ stale: true })]),
+    },
+  }, NOW);
+  assert.equal(result.status, 'warn');
+  assert.equal(result.statusDetail, '1 项沿用上次数据');
+});
+
+test('tech-radar: 数据超过 7 天未更新为异常', () => {
+  const result = adaptTechRadar({
+    pushedAt: daysAgo(10),
+    files: {
+      'data/catalog.json': catalogFile([catalogItem()], { updatedAt: daysAgo(10) }),
+    },
+  }, NOW);
+  assert.equal(result.status, 'error');
+  assert.equal(result.statusDetail, '数据超过 7 天未更新');
+});
+
+test('tech-radar: 缺少 catalog.json 为未知', () => {
+  const result = adaptTechRadar({ pushedAt: daysAgo(1), files: {} }, NOW);
+  assert.equal(result.status, 'unknown');
+  assert.equal(result.statusLabel, '未知');
+  assert.equal(result.statusDetail, '缺少 catalog.json');
+  assert.equal(result.summary, null);
 });
