@@ -58,7 +58,7 @@ npm run preview   # 预览构建产物
 1. 校验 `config/sites.mjs`：id、url、repo、category、adapter 任一非法就报错退出。
 2. 逐个站点请求 `api.github.com/repos/{repo}` 获取 `pushed_at`。
 3. 按 adapter 读取该站仓库中的数据文件（见下表）。
-4. 归一化为统一的 `status` / `statusLabel` / `statusDetail` / `summary`。
+4. 归一化为统一的 `status` / `statusLabel` / `statusDetail` / `summary`：`status` 决定颜色，`statusLabel` 只放状态词（正常 / 需关注 / 异常 / 未知），`statusDetail` 说明原因，数字进 `summary`。
 5. 与上一轮结果合并，写入 `data/sites.json` 与 `data/health.json`；内容无变化时不写盘、不产生空提交。
 
 文件读取优先走 `raw.githubusercontent.com`，失败后回退 GitHub Contents API；
@@ -69,7 +69,7 @@ npm run preview   # 预览构建产物
 
 | adapter | 读取的文件 | 状态判定 |
 |---|---|---|
-| `commit` | 无 | 仓库最近提交时间，90 天为阈值 |
+| `commit` | 无 | 只看仓库可读性；提交时间仅用于展示，不参与告警 |
 | `pulse` | `data/health.json`、`data/index.json` | 信息源成功率 + 7 / 30 天新鲜度 |
 | `repo-rank` | `data/meta.json`、`data/health.json`、`data/index.json` | 查询成功率 + 7 / 30 天新鲜度 |
 | `lucky` | `data/meta.json`、`data/health.json` | 最近一次抓取结果 + 14 / 45 天新鲜度 |
@@ -81,9 +81,12 @@ npm run preview   # 预览构建产物
 | Pulse Hub | 全部源成功且 7 天内更新 | 有源失败，或 8–30 天 | 无可用源，或超过 30 天 |
 | Repo Rank | 全部查询成功且 7 天内更新 | 部分失败，或 8–30 天 | 全部失败，或超过 30 天 |
 | Lucky Hub | 抓取成功且 14 天内更新 | 15–45 天 | 最近一次失败，或超过 45 天 |
-| 其他站点 | 最近提交在 90 天内 | 超过 90 天未提交 | —（不会判为异常） |
+| 其他站点 | 仓库可读即正常 | — | —（提交时间不参与判定） |
 
 无法获取数据且没有历史记录时显示「未知」；有历史记录则保留旧数据，只把状态降级为「未知」并附原因。
+
+内容站（学习 / 工具 / 体验）不做陈旧度告警：提交时间只能证明仓库可读，不能证明站点可用，
+也不代表内容过时。多久没动由卡片上的「最近更新 08-18」直接表达。
 
 ## 新增站点
 

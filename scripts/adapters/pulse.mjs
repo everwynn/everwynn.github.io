@@ -1,4 +1,5 @@
 import { freshness } from '../lib/freshness.mjs';
+import { STATUS_LABELS } from '../lib/status.mjs';
 
 export function adaptPulse({ pushedAt, files }, now = new Date()) {
   const health = files?.['data/health.json'] ?? null;
@@ -11,7 +12,7 @@ export function adaptPulse({ pushedAt, files }, now = new Date()) {
       lastCommitAt: pushedAt ?? null,
       dataUpdatedAt: updatedAt,
       status: 'unknown',
-      statusLabel: '未知',
+      statusLabel: STATUS_LABELS.unknown,
       statusDetail: '缺少 health.json 汇总数据',
       summary: null,
     };
@@ -22,29 +23,30 @@ export function adaptPulse({ pushedAt, files }, now = new Date()) {
   const failed = Number(summary.failed ?? 0);
   const today = Number(summary.todayCount ?? 0);
 
+  // status 决定颜色，statusDetail 说明原因，summary 放数字，三者不重复。
   let status = 'ok';
-  let statusLabel = `${ok}/${total} 源正常`;
+  let statusDetail = null;
 
   if (total === 0) {
     status = 'error';
-    statusLabel = '无可用信息源';
+    statusDetail = '无可用信息源';
   } else if (failed > 0) {
     status = 'warn';
-    statusLabel = `${failed} 个源失败`;
+    statusDetail = `${ok}/${total} 源正常，${failed} 个失败`;
   }
 
   const age = freshness(updatedAt, 7, 30, now);
   if (status === 'ok' && age !== 'ok') {
     status = age;
-    statusLabel = age === 'warn' ? '数据偏旧' : '数据过期';
+    statusDetail = age === 'warn' ? '数据超过 7 天未更新' : '数据超过 30 天未更新';
   }
 
   return {
     lastCommitAt: pushedAt ?? null,
     dataUpdatedAt: updatedAt,
     status,
-    statusLabel,
-    statusDetail: failed > 0 ? `${ok}/${total} 源正常，${failed} 个失败` : null,
+    statusLabel: STATUS_LABELS[status],
+    statusDetail,
     summary: { label: `${ok}/${total} 源正常`, detail: `今日 ${today} 条` },
   };
 }

@@ -14,10 +14,16 @@ test('commit: 90 天内正常', () => {
   assert.equal(result.statusLabel, '正常');
 });
 
-test('commit: 超过 90 天需关注', () => {
+test('commit: 提交久远不算异常', () => {
   const result = adaptCommit({ pushedAt: daysAgo(120) }, NOW);
-  assert.equal(result.status, 'warn');
-  assert.match(result.statusLabel, /120 天未更新/);
+  assert.equal(result.status, 'ok');
+  assert.equal(result.statusLabel, '正常');
+});
+
+test('commit: 一年未提交仍为正常', () => {
+  const result = adaptCommit({ pushedAt: daysAgo(365) }, NOW);
+  assert.equal(result.status, 'ok');
+  assert.equal(result.statusLabel, '正常');
 });
 
 test('commit: 缺少提交时间为未知', () => {
@@ -51,7 +57,24 @@ test('pulse: 有源失败为需关注', () => {
     },
   }, NOW);
   assert.equal(result.status, 'warn');
-  assert.equal(result.statusLabel, '2 个源失败');
+  assert.equal(result.statusLabel, '需关注');
+  assert.equal(result.statusDetail, '20/22 源正常，2 个失败');
+  assert.equal(result.summary.label, '20/22 源正常');
+});
+
+test('pulse: 数据偏旧时状态词为需关注', () => {
+  const result = adaptPulse({
+    pushedAt: daysAgo(10),
+    files: {
+      'data/health.json': {
+        updatedAt: daysAgo(10),
+        summary: { total: 22, ok: 22, failed: 0, skipped: 0, todayCount: 0 },
+      },
+    },
+  }, NOW);
+  assert.equal(result.status, 'warn');
+  assert.equal(result.statusLabel, '需关注');
+  assert.match(result.statusDetail, /7 天/);
 });
 
 test('pulse: 数据超过 30 天为异常', () => {
@@ -90,7 +113,8 @@ test('repo-rank: 部分失败为需关注', () => {
     files: { 'data/meta.json': { updatedAt: daysAgo(1), requests: 92, failed: 3 } },
   }, NOW);
   assert.equal(result.status, 'warn');
-  assert.equal(result.statusLabel, '3 次查询失败');
+  assert.equal(result.statusLabel, '需关注');
+  assert.equal(result.statusDetail, '92 次查询中 3 次失败');
 });
 
 test('repo-rank: 全部失败为异常', () => {
@@ -99,6 +123,7 @@ test('repo-rank: 全部失败为异常', () => {
     files: { 'data/meta.json': { updatedAt: daysAgo(1), requests: 92, failed: 92 } },
   }, NOW);
   assert.equal(result.status, 'error');
+  assert.equal(result.statusLabel, '异常');
 });
 
 test('lucky: 抓取失败为异常', () => {
@@ -110,8 +135,11 @@ test('lucky: 抓取失败为异常', () => {
     },
   }, NOW);
   assert.equal(result.status, 'error');
-  assert.equal(result.statusLabel, '抓取失败');
+  assert.equal(result.statusLabel, '异常');
   assert.match(result.statusDetail, /HTTP 403 Forbidden/);
+  // 期号属于摘要，异常时也要保留，否则看不出数据停在哪一期
+  assert.equal(result.summary.label, '第 2026124 期');
+  assert.equal(result.summary.detail, '共 2082 期');
 });
 
 test('lucky: 14 天内正常', () => {
@@ -123,6 +151,8 @@ test('lucky: 14 天内正常', () => {
     },
   }, NOW);
   assert.equal(result.status, 'ok');
+  assert.equal(result.statusLabel, '正常');
+  assert.equal(result.summary.label, '第 2026124 期');
 });
 
 test('lucky: 20 天为需关注', () => {

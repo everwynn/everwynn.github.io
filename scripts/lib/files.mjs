@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
+import { STATUS_LABELS } from './status.mjs';
 
 export function readJson(file, fallback = null) {
   if (!existsSync(file)) return fallback;
@@ -26,7 +27,7 @@ export function mergeSites(previousSites, nextSite) {
   return {
     ...previous,
     status: 'unknown',
-    statusLabel: '未知',
+    statusLabel: STATUS_LABELS.unknown,
     statusDetail: nextSite.statusDetail ?? previous.statusDetail ?? '本轮未获取到数据',
   };
 }

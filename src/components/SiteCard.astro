@@ -12,8 +12,20 @@ const categoryLabel = CATEGORY_LABELS[site.category];
 const isDataSite = site.category === 'data';
 const timeLabel = isDataSite ? '数据截止' : '最近更新';
 const timeValue = isDataSite ? site.dataUpdatedAt : site.lastCommitAt;
-const tech = site.tech.slice(0, 2).join(' · ');
-const haystack = [site.name, site.description, categoryLabel, site.tech.join(' ')]
+// 数据站底行留给数据摘要（第 2026124 期 / 19/22 源正常），内容站留给技术栈：
+// 三家数据站的技术栈几乎一样，信息量远低于一行真实数据。
+const metaText = isDataSite && site.summary ? site.summary.label : site.tech.slice(0, 2).join(' · ');
+const metaTitle = isDataSite ? site.summary?.detail ?? undefined : undefined;
+// 异常原因必须可见：title 提示在手机上永远看不到。
+const showReason = site.status !== 'ok' && Boolean(site.statusDetail);
+const reasonTone = site.status === 'error' ? 'text-danger' : 'text-warn';
+const haystack = [
+  site.name,
+  site.description,
+  categoryLabel,
+  site.tech.join(' '),
+  site.summary?.label ?? '',
+]
   .join(' ')
   .toLowerCase();
 ---
@@ -32,12 +44,23 @@ const haystack = [site.name, site.description, categoryLabel, site.tech.join(' '
   <h3 class="mt-3 text-[17px] font-semibold leading-snug tracking-tight">{site.name}</h3>
   <p class="mt-2 line-clamp-2 text-sm leading-relaxed text-muted">{site.description}</p>
 
+  {showReason && (
+    <p
+      class:list={['mt-2 truncate text-[11px] leading-relaxed', reasonTone]}
+      title={site.statusDetail ?? undefined}
+    >
+      {site.statusDetail}
+    </p>
+  )}
+
   <div class="mt-auto flex items-center justify-between gap-3 pt-5 text-xs text-muted">
     <span class="whitespace-nowrap">
       {timeLabel}
       <time datetime={timeValue ?? undefined}>{formatRelative(timeValue)}</time>
     </span>
-    <span class="truncate font-mono text-xs text-muted">{tech}</span>
+    <span class:list={['truncate text-xs text-muted', !isDataSite && 'font-mono']} title={metaTitle}>
+      {metaText}
+    </span>
   </div>
 
   <a

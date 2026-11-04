@@ -1,4 +1,5 @@
 import { freshness } from '../lib/freshness.mjs';
+import { STATUS_LABELS } from '../lib/status.mjs';
 
 function shortDate(iso) {
   if (!iso) return null;
@@ -21,7 +22,7 @@ export function adaptLucky({ pushedAt, files }, now = new Date()) {
       lastCommitAt: pushedAt ?? null,
       dataUpdatedAt: updatedAt,
       status: 'unknown',
-      statusLabel: '未知',
+      statusLabel: STATUS_LABELS.unknown,
       statusDetail: '缺少 meta.json',
       summary: null,
     };
@@ -31,13 +32,12 @@ export function adaptLucky({ pushedAt, files }, now = new Date()) {
   const total = Number(meta.total ?? 0);
   const lastSuccess = shortDate(health?.lastSuccessAt ?? meta.updatedAt);
 
+  // 期号属于摘要，不放在状态词里；状态只回答“能不能用”。
   let status = 'ok';
-  let statusLabel = `第 ${lastCode} 期`;
   let statusDetail = lastSuccess ? `最近成功 ${lastSuccess}` : null;
 
   if (health?.status === 'error') {
     status = 'error';
-    statusLabel = '抓取失败';
     statusDetail = [health.message, lastSuccess ? `最近成功 ${lastSuccess}` : null]
       .filter(Boolean)
       .join(' · ');
@@ -45,7 +45,7 @@ export function adaptLucky({ pushedAt, files }, now = new Date()) {
     const age = freshness(updatedAt, 14, 45, now);
     if (age !== 'ok') {
       status = age;
-      statusLabel = age === 'warn' ? '数据偏旧' : '数据过期';
+      statusDetail = age === 'warn' ? '数据超过 14 天未更新' : '数据超过 45 天未更新';
     }
   }
 
@@ -53,7 +53,7 @@ export function adaptLucky({ pushedAt, files }, now = new Date()) {
     lastCommitAt: pushedAt ?? null,
     dataUpdatedAt: updatedAt,
     status,
-    statusLabel,
+    statusLabel: STATUS_LABELS[status],
     statusDetail,
     summary: { label: `第 ${lastCode} 期`, detail: `共 ${total} 期` },
   };
