@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T18:11:33.037Z",
+  "updatedAt": "2026-11-04T18:40:46.100Z",
   "sites": [
     {
       "id": "cs-lab",
@@ -149,7 +149,7 @@
       ],
       "adapter": "tech-radar",
       "order": 70,
-      "lastCommitAt": "2026-11-04T18:07:21Z",
+      "lastCommitAt": "2026-11-04T18:16:56Z",
       "dataUpdatedAt": "2026-11-04T17:36:50.615Z",
       "status": "ok",
       "statusLabel": "正常",
