@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T03:28:15.002Z",
+  "updatedAt": "2026-11-06T18:02:48.867Z",
   "sites": [
     {
       "id": "cs-lab",
@@ -60,14 +60,14 @@
       ],
       "adapter": "pulse",
       "order": 30,
-      "lastCommitAt": "2026-11-05T16:28:22Z",
-      "dataUpdatedAt": "2026-11-05T16:28:14.898Z",
+      "lastCommitAt": "2026-11-06T15:55:14Z",
+      "dataUpdatedAt": "2026-11-06T15:55:07.454Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
       "summary": {
         "label": "19/22 源正常",
-        "detail": "今日 24 条"
+        "detail": "今日 164 条"
       }
     },
     {
@@ -84,8 +84,8 @@
       ],
       "adapter": "repo-rank",
       "order": 40,
-      "lastCommitAt": "2026-11-05T18:55:08Z",
-      "dataUpdatedAt": "2026-11-05T18:48:15.003Z",
+      "lastCommitAt": "2026-11-06T03:34:52Z",
+      "dataUpdatedAt": "2026-11-06T03:28:37.335Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
@@ -149,14 +149,14 @@
       ],
       "adapter": "tech-radar",
       "order": 70,
-      "lastCommitAt": "2026-11-06T02:47:32Z",
-      "dataUpdatedAt": "2026-11-06T02:47:31.138Z",
+      "lastCommitAt": "2026-11-06T15:43:51Z",
+      "dataUpdatedAt": "2026-11-06T15:43:50.569Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
       "summary": {
-        "label": "10 项技术",
-        "detail": "5 项有 EOL · 4 项可查漏洞"
+        "label": "15 项技术",
+        "detail": "10 项有 EOL · 9 项可查漏洞"
       }
     }
   ]
