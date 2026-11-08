@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-07T10:30:41.651Z",
+  "updatedAt": "2026-11-08T11:28:17.598Z",
   "sites": {
     "cs-lab": {
       "status": "ok",
@@ -22,8 +22,8 @@
       "reason": null
     },
     "whimsy-hub": {
-      "status": "ok",
-      "reason": null
+      "status": "error",
+      "reason": "仓库信息获取失败：HTTP 404 Not Found"
     },
     "tech-radar": {
       "status": "ok",
