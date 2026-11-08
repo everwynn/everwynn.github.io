@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-08T11:28:17.598Z",
+  "updatedAt": "2026-11-08T13:32:02.530Z",
   "sites": [
     {
       "id": "cs-lab",
@@ -15,7 +15,7 @@
       ],
       "adapter": "commit",
       "order": 10,
-      "lastCommitAt": "2026-11-08T11:06:37Z",
+      "lastCommitAt": "2026-11-08T13:27:33Z",
       "dataUpdatedAt": null,
       "status": "ok",
       "statusLabel": "正常",
@@ -36,7 +36,7 @@
       ],
       "adapter": "lucky",
       "order": 20,
-      "lastCommitAt": "2026-11-08T10:34:56Z",
+      "lastCommitAt": "2026-11-08T13:25:37Z",
       "dataUpdatedAt": "2026-11-04T00:00:45.472Z",
       "status": "ok",
       "statusLabel": "正常",
@@ -60,14 +60,14 @@
       ],
       "adapter": "pulse",
       "order": 30,
-      "lastCommitAt": "2026-11-08T10:32:38Z",
-      "dataUpdatedAt": "2026-11-08T05:57:37.450Z",
+      "lastCommitAt": "2026-11-08T13:30:18Z",
+      "dataUpdatedAt": "2026-11-08T13:16:10.557Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
       "summary": {
         "label": "19/22 源正常",
-        "detail": "今日 50 条"
+        "detail": "今日 86 条"
       }
     },
     {
@@ -84,8 +84,8 @@
       ],
       "adapter": "repo-rank",
       "order": 40,
-      "lastCommitAt": "2026-11-08T10:51:40Z",
-      "dataUpdatedAt": "2026-11-08T02:32:25.749Z",
+      "lastCommitAt": "2026-11-08T13:26:48Z",
+      "dataUpdatedAt": "2026-11-08T12:41:12.689Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
@@ -149,7 +149,7 @@
       ],
       "adapter": "tech-radar",
       "order": 70,
-      "lastCommitAt": "2026-11-08T10:29:06Z",
+      "lastCommitAt": "2026-11-08T13:23:44Z",
       "dataUpdatedAt": "2026-11-07T02:20:15.001Z",
       "status": "ok",
       "statusLabel": "正常",
