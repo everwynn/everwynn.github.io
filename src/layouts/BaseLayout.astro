@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import ThemeToggle from '../components/ThemeToggle.astro';
+import VisitCounter from '../components/VisitCounter.astro';
 
 interface Props {
   title: string;
@@ -106,6 +107,9 @@ const pageTitle = title === 'EverWynn Station' ? title : `${title} · EverWynn S
         >
           GitHub
         </a>
+      </div>
+      <div class="mx-auto max-w-content px-4 pb-6 text-xs text-muted sm:px-6">
+        <VisitCounter site="station" />
       </div>
     </footer>
   </body>

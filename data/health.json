@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T17:00:27.523Z",
+  "updatedAt": "2026-11-07T10:30:41.651Z",
   "sites": {
     "cs-lab": {
       "status": "ok",
@@ -26,8 +26,8 @@
       "reason": null
     },
     "tech-radar": {
-      "status": "error",
-      "reason": "仓库信息获取失败：HTTP 404 Not Found"
+      "status": "ok",
+      "reason": null
     }
   }
 }
