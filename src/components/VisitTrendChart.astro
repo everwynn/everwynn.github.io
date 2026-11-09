@@ -1,0 +1,76 @@
+---
+interface Point {
+  day: string;
+  pv: number;
+}
+
+interface Props {
+  series: Point[];
+  label?: string;
+}
+
+const { series, label = '近 30 天每日浏览' } = Astro.props;
+
+const width = 640;
+const height = 180;
+const pad = { top: 12, right: 8, bottom: 24, left: 8 };
+const innerW = width - pad.left - pad.right;
+const innerH = height - pad.top - pad.bottom;
+const max = Math.max(1, ...series.map((point) => point.pv));
+const step = innerW / Math.max(1, series.length);
+const barW = Math.max(4, step - 2);
+const total = series.reduce((sum, point) => sum + point.pv, 0);
+const first = series[0]?.day ?? '';
+const last = series[series.length - 1]?.day ?? '';
+const fmt = (value: number) => value.toLocaleString('zh-CN');
+---
+
+<figure>
+  <svg
+    viewBox={`0 0 ${width} ${height}`}
+    role="img"
+    aria-label={`${label}，共 ${series.length} 天，合计 ${fmt(total)} 次浏览`}
+    class="h-auto w-full"
+  >
+    {series.map((point, index) => {
+      const barH = point.pv === 0 ? 0 : Math.max(2, (point.pv / max) * innerH);
+      const x = pad.left + index * step;
+      const y = pad.top + innerH - barH;
+      return (
+        <rect
+          x={x.toFixed(2)}
+          y={y.toFixed(2)}
+          width={barW.toFixed(2)}
+          height={barH.toFixed(2)}
+          rx="1.5"
+          fill="currentColor"
+          class="text-ink"
+        >
+          <title>{point.day}：{fmt(point.pv)} 次</title>
+        </rect>
+      );
+    })}
+    <line
+      x1={pad.left}
+      y1={pad.top + innerH}
+      x2={width - pad.right}
+      y2={pad.top + innerH}
+      stroke="currentColor"
+      class="text-line"
+      stroke-width="1"
+    />
+    <text x={pad.left} y={height - 6} fill="currentColor" class="text-[10px] text-muted">{first}</text>
+    <text x={width - pad.right} y={height - 6} text-anchor="end" fill="currentColor" class="text-[10px] text-muted">{last}</text>
+  </svg>
+  <figcaption class="sr-only">
+    <table>
+      <caption>{label}</caption>
+      <thead><tr><th scope="col">日期</th><th scope="col">浏览</th></tr></thead>
+      <tbody>
+        {series.map((point) => (
+          <tr><th scope="row">{point.day}</th><td>{point.pv}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </figcaption>
+</figure>

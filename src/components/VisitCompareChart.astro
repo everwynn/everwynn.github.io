@@ -1,0 +1,66 @@
+---
+interface Row {
+  id: string;
+  name: string;
+  pv: number;
+}
+
+interface Props {
+  rows: Row[];
+}
+
+const { rows } = Astro.props;
+
+const width = 640;
+const rowH = 28;
+const labelW = 150;
+const valueW = 64;
+const height = rows.length * rowH + 8;
+const max = Math.max(1, ...rows.map((row) => row.pv));
+const barMax = width - labelW - valueW;
+const fmt = (value: number) => value.toLocaleString('zh-CN');
+---
+
+<figure>
+  <svg
+    viewBox={`0 0 ${width} ${height}`}
+    role="img"
+    aria-label={`站点近 30 天浏览对比，共 ${rows.length} 个站点`}
+    class="h-auto w-full"
+  >
+    {rows.map((row, index) => {
+      const y = index * rowH + 8;
+      const barW = Math.max(2, (row.pv / max) * barMax);
+      return (
+        <g>
+          <text x="0" y={y + 12} fill="currentColor" class="text-[11px] text-muted">{row.name}</text>
+          <rect
+            x={labelW}
+            y={y}
+            width={barW.toFixed(2)}
+            height={12}
+            rx="2"
+            fill="currentColor"
+            class="text-ink"
+          >
+            <title>{row.name}：{fmt(row.pv)} 次</title>
+          </rect>
+          <text x={width} y={y + 10} text-anchor="end" fill="currentColor" class="text-[11px] text-ink">
+            {fmt(row.pv)}
+          </text>
+        </g>
+      );
+    })}
+  </svg>
+  <figcaption class="sr-only">
+    <table>
+      <caption>站点近 30 天浏览对比</caption>
+      <thead><tr><th scope="col">站点</th><th scope="col">浏览</th></tr></thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr><th scope="row">{row.name}</th><td>{row.pv}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </figcaption>
+</figure>

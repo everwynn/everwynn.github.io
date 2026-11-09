@@ -43,6 +43,7 @@ jobs:
       - run: npm run fetch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STATS_ENDPOINT: ${{ vars.STATS_ENDPOINT }}
 
       - name: Commit data if changed
         run: |

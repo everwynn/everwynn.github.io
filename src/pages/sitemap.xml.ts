@@ -4,7 +4,7 @@ import { getUpdatedAt } from '../lib/sites';
 export const GET: APIRoute = ({ site }) => {
   const origin = site ?? new URL('https://everwynn.github.io');
   const lastmod = getUpdatedAt();
-  const pages = [new URL('./', origin), new URL('about/', origin)];
+  const pages = [new URL('./', origin), new URL('about/', origin), new URL('stats/', origin)];
 
   const entries = pages
     .map((url) => `  <url>\n    <loc>${url.href}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`)

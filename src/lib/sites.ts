@@ -3,7 +3,23 @@ import { readFileSync } from 'node:fs';
 export type Category = 'learn' | 'data' | 'tool' | 'experience';
 export type SiteStatus = 'ok' | 'warn' | 'error' | 'unknown';
 
-export interface SiteEntry {
+export interface VisitSummary {
+  totalPv: number;
+  totalUv: number;
+  d30Pv: number;
+  d30Uv: number;
+  series: Array<{ day: string; pv: number }>;
+  top: Array<{ path: string; pv: number }>;
+}
+
+export interface StatsFile {
+  updatedAt: string;
+  window: number;
+  sites: Record<string, VisitSummary>;
+  total: { pv: number; uv: number };
+}
+
+export interface SiteRecord {
   id: string;
   name: string;
   url: string;
@@ -20,14 +36,37 @@ export interface SiteEntry {
   order: number;
 }
 
+export interface SiteEntry extends SiteRecord {
+  visits: VisitSummary | null;
+}
+
 interface SitesFile {
   updatedAt: string;
-  sites: SiteEntry[];
+  sites: SiteRecord[];
 }
 
 const data = JSON.parse(
   readFileSync(new URL('../../data/sites.json', import.meta.url), 'utf8'),
 ) as SitesFile;
+
+// 统计快照缺失或损坏时降级为 null，页面不显示任何浏览数字
+export const stats: StatsFile | null = (() => {
+  try {
+    return JSON.parse(
+      readFileSync(new URL('../../data/stats.json', import.meta.url), 'utf8'),
+    ) as StatsFile;
+  } catch {
+    return null;
+  }
+})();
+
+export function getStats(): StatsFile | null {
+  return stats;
+}
+
+export function getSiteStats(id: string): VisitSummary | null {
+  return stats?.sites?.[id] ?? null;
+}
 
 export const CATEGORY_LABELS: Record<Category, string> = {
   learn: '学习',
@@ -39,10 +78,12 @@ export const CATEGORY_LABELS: Record<Category, string> = {
 export const CATEGORY_ORDER: Category[] = ['learn', 'data', 'tool', 'experience'];
 
 export function getSites(): SiteEntry[] {
-  return [...data.sites].sort((a, b) => {
-    const categoryDiff = CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category);
-    return categoryDiff || a.order - b.order || a.name.localeCompare(b.name);
-  });
+  return [...data.sites]
+    .sort((a, b) => {
+      const categoryDiff = CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category);
+      return categoryDiff || a.order - b.order || a.name.localeCompare(b.name);
+    })
+    .map((site) => ({ ...site, visits: getSiteStats(site.id) }));
 }
 
 export function getUpdatedAt(): string {

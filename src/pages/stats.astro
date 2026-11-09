@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import VisitTrendChart from '../components/VisitTrendChart.astro';
+import VisitCompareChart from '../components/VisitCompareChart.astro';
+import { getSiteStats, getSites, getStats } from '../lib/sites';
+import type { SiteEntry, VisitSummary } from '../lib/sites';
+import { formatAbsolute } from '../lib/format';
+
+const stats = getStats();
+const sites = getSites();
+const withVisits = sites.filter(
+  (site): site is SiteEntry & { visits: VisitSummary } => site.visits !== null,
+);
+
+// 门户自身不在 sites.json 的导航列表里，但它同样接入了统计，单独并入汇总
+const stationStats = getSiteStats('station');
+
+const rows = [
+  ...withVisits.map((site) => ({ id: site.id, name: site.name, pv: site.visits.d30Pv })),
+  ...(stationStats ? [{ id: 'station', name: '本站首页', pv: stationStats.d30Pv }] : []),
+]
+  .filter((row) => row.pv > 0)
+  .sort((a, b) => b.pv - a.pv || a.name.localeCompare(b.name));
+
+const byDay = new Map<string, number>();
+for (const site of withVisits) {
+  for (const point of site.visits.series) {
+    byDay.set(point.day, (byDay.get(point.day) ?? 0) + point.pv);
+  }
+}
+for (const point of stationStats?.series ?? []) {
+  byDay.set(point.day, (byDay.get(point.day) ?? 0) + point.pv);
+}
+const trend = [...byDay.entries()]
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([day, pv]) => ({ day, pv }));
+
+const total30 = rows.reduce((sum, row) => sum + row.pv, 0);
+const totalAll =
+  withVisits.reduce((sum, site) => sum + site.visits.totalPv, 0) + (stationStats?.totalPv ?? 0);
+const activeDays = trend.filter((point) => point.pv > 0).length;
+const showCharts = total30 >= 10 && activeDays >= 5;
+const updatedAt = stats?.updatedAt ?? null;
+const fmt = (value: number) => value.toLocaleString('zh-CN');
+---
+
+<BaseLayout title="访问量">
+  <section class="mx-auto max-w-content px-4 pb-10 pt-12 sm:px-6 sm:pt-16">
+    <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-muted">Visits</p>
+    <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-[32px]">访问量</h1>
+    <p class="mt-4 max-w-[60ch] text-[15px] leading-relaxed text-muted">
+      仅统计接入的 6 个站点，数据每 12 小时更新一次；whimsy-hub 与 stroke-annotation-tool 不在此列。
+    </p>
+    {totalAll > 0 ? (
+      <ul class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+        <li class="flex items-baseline gap-1.5">
+          <span class="font-mono text-[15px] font-medium leading-none">{fmt(totalAll)}</span>
+          <span class="text-muted">累计浏览</span>
+        </li>
+        <li class="flex items-baseline gap-1.5">
+          <span class="font-mono text-[15px] font-medium leading-none">{fmt(total30)}</span>
+          <span class="text-muted">近 30 天</span>
+        </li>
+        {updatedAt && (
+          <li class="text-muted">
+            数据截至 <time datetime={updatedAt}>{formatAbsolute(updatedAt)}</time>
+          </li>
+        )}
+      </ul>
+    ) : (
+      <p class="mt-6 text-sm text-muted">数据尚未接入，访问任一站点后在此显示。</p>
+    )}
+  </section>
+
+  <div class="mx-auto max-w-content space-y-10 px-4 pb-16 sm:px-6">
+    {showCharts ? (
+      <>
+        <section>
+          <h2 class="text-sm font-medium">站点对比 · 近 30 天</h2>
+          <div class="mt-4 rounded-xl border border-line bg-surface p-4 sm:p-6">
+            <VisitCompareChart rows={rows} />
+          </div>
+        </section>
+        <section>
+          <h2 class="text-sm font-medium">整体趋势 · 近 30 天</h2>
+          <div class="mt-4 rounded-xl border border-line bg-surface p-4 sm:p-6">
+            <VisitTrendChart series={trend} />
+          </div>
+        </section>
+      </>
+    ) : (
+      <p class="rounded-xl border border-line bg-surface px-5 py-10 text-center text-sm text-muted">
+        数据积累中：累计浏览满 10 次且有效天数满 5 天后显示图表。
+      </p>
+    )}
+
+    <p class="text-xs leading-relaxed text-muted">
+      本站使用匿名访问统计，不收集个人身份信息：不使用 cookie，不保存原始 IP，
+      访客标识仅以当日盐值哈希参与去重，35 天后自动删除。
+    </p>
+  </div>
+</BaseLayout>

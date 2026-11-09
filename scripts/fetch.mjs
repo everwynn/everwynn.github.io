@@ -9,11 +9,13 @@ import { adaptPulse } from './adapters/pulse.mjs';
 import { adaptRepoRank } from './adapters/repo-rank.mjs';
 import { adaptLucky } from './adapters/lucky.mjs';
 import { adaptTechRadar } from './adapters/tech-radar.mjs';
+import { fetchStats, toSnapshot, writeStats } from './stats.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA_DIR = resolve(ROOT, 'data');
 const SITES_FILE = resolve(DATA_DIR, 'sites.json');
 const HEALTH_FILE = resolve(DATA_DIR, 'health.json');
+const STATS_FILE = resolve(DATA_DIR, 'stats.json');
 
 const ADAPTERS = {
   commit: adaptCommit,
@@ -154,9 +156,21 @@ async function run() {
   const healthWritten = writeJsonIfChanged(HEALTH_FILE, healthPayload);
   const failed = Object.values(healthSites).filter((item) => item.status === 'error').length;
 
+  // 统计快照必须可失败：端点不可达时保留旧文件，不能让整轮抓取退出非 0
+  let statsNote = '未配置 STATS_ENDPOINT，跳过';
+  if (process.env.STATS_ENDPOINT) {
+    try {
+      const payload = await fetchStats({ endpoint: process.env.STATS_ENDPOINT, days: 30 });
+      statsNote = writeStats(STATS_FILE, toSnapshot(payload, 30, now)) ? '已更新' : '无变化';
+    } catch (error) {
+      statsNote = `失败，沿用旧数据：${error.message}`;
+    }
+  }
+
   console.log(
     `[station] 完成：${nextSites.length} 个站点，${failed} 个失败，` +
-    `sites.json ${sitesWritten ? '已更新' : '无变化'}，health.json ${healthWritten ? '已更新' : '无变化'}`,
+    `sites.json ${sitesWritten ? '已更新' : '无变化'}，health.json ${healthWritten ? '已更新' : '无变化'}，` +
+    `stats.json ${statsNote}`,
   );
 }
 
