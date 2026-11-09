@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T15:05:52.581Z",
+  "updatedAt": "2026-11-09T21:28:31.106Z",
   "sites": [
     {
       "id": "cs-lab",
@@ -60,14 +60,14 @@
       ],
       "adapter": "pulse",
       "order": 30,
-      "lastCommitAt": "2026-11-09T14:58:05Z",
-      "dataUpdatedAt": "2026-11-09T06:21:39.774Z",
+      "lastCommitAt": "2026-11-09T18:46:18Z",
+      "dataUpdatedAt": "2026-11-09T18:46:11.729Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
       "summary": {
         "label": "19/22 源正常",
-        "detail": "今日 62 条"
+        "detail": "今日 55 条"
       }
     },
     {
@@ -84,8 +84,8 @@
       ],
       "adapter": "repo-rank",
       "order": 40,
-      "lastCommitAt": "2026-11-09T15:00:47Z",
-      "dataUpdatedAt": "2026-11-09T02:42:40.371Z",
+      "lastCommitAt": "2026-11-09T15:14:10Z",
+      "dataUpdatedAt": "2026-11-09T15:07:17.650Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
