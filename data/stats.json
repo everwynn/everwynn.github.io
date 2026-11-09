@@ -1,17 +1,13 @@
 {
-  "updatedAt": "2026-11-08T14:50:11.457Z",
+  "updatedAt": "2026-11-09T12:42:40.101Z",
   "window": 30,
   "sites": {
     "station": {
-      "totalPv": 4,
-      "totalUv": 1,
-      "d30Pv": 4,
-      "d30Uv": 1,
+      "totalPv": 11,
+      "totalUv": 2,
+      "d30Pv": 11,
+      "d30Uv": 2,
       "series": [
-        {
-          "day": "2026-10-10",
-          "pv": 0
-        },
         {
           "day": "2026-10-11",
           "pv": 0
@@ -127,25 +123,29 @@
         {
           "day": "2026-11-08",
           "pv": 4
+        },
+        {
+          "day": "2026-11-09",
+          "pv": 7
         }
       ],
       "top": [
         {
           "path": "/",
-          "pv": 4
+          "pv": 9
+        },
+        {
+          "path": "/whimsy-hub/",
+          "pv": 2
         }
       ]
     },
     "cs-lab": {
-      "totalPv": 22,
-      "totalUv": 5,
-      "d30Pv": 22,
-      "d30Uv": 5,
+      "totalPv": 54,
+      "totalUv": 11,
+      "d30Pv": 54,
+      "d30Uv": 11,
       "series": [
-        {
-          "day": "2026-10-10",
-          "pv": 0
-        },
         {
           "day": "2026-10-11",
           "pv": 0
@@ -261,11 +261,23 @@
         {
           "day": "2026-11-08",
           "pv": 22
+        },
+        {
+          "day": "2026-11-09",
+          "pv": 32
         }
       ],
       "top": [
         {
           "path": "/cs-lab/",
+          "pv": 12
+        },
+        {
+          "path": "/cs-lab/algorithms/",
+          "pv": 7
+        },
+        {
+          "path": "/cs-lab/data-structures/",
           "pv": 7
         },
         {
@@ -273,27 +285,55 @@
           "pv": 5
         },
         {
-          "path": "/cs-lab/algorithms/sorting/quick-sort/",
-          "pv": 3
+          "path": "/cs-lab/algorithms/sorting/bubble-sort/",
+          "pv": 4
         },
         {
-          "path": "/cs-lab/algorithms/",
-          "pv": 2
+          "path": "/cs-lab/algorithms/sorting/quick-sort/",
+          "pv": 4
         },
         {
           "path": "/cs-lab/design-patterns/",
-          "pv": 2
-        },
-        {
-          "path": "/cs-lab/data-structures/",
-          "pv": 1
+          "pv": 4
         },
         {
           "path": "/cs-lab/data-structures/stack/",
+          "pv": 2
+        },
+        {
+          "path": "/cs-lab/algorithms/sorting/heap-sort/",
+          "pv": 1
+        },
+        {
+          "path": "/cs-lab/algorithms/sorting/selection-sort/",
+          "pv": 1
+        },
+        {
+          "path": "/cs-lab/data-structures/bst/",
           "pv": 1
         },
         {
           "path": "/cs-lab/design-patterns/factory/",
+          "pv": 1
+        },
+        {
+          "path": "/cs-lab/design-patterns/singleton/",
+          "pv": 1
+        },
+        {
+          "path": "/cs-lab/git-workflow/",
+          "pv": 1
+        },
+        {
+          "path": "/cs-lab/git-workflow/basics/",
+          "pv": 1
+        },
+        {
+          "path": "/cs-lab/git-workflow/branching/",
+          "pv": 1
+        },
+        {
+          "path": "/cs-lab/git-workflow/conflict/",
           "pv": 1
         }
       ]
@@ -305,10 +345,6 @@
       "d30Uv": 2,
       "series": [
         {
-          "day": "2026-10-10",
-          "pv": 0
-        },
-        {
           "day": "2026-10-11",
           "pv": 0
         },
@@ -423,6 +459,10 @@
         {
           "day": "2026-11-08",
           "pv": 3
+        },
+        {
+          "day": "2026-11-09",
+          "pv": 0
         }
       ],
       "top": [
@@ -433,15 +473,11 @@
       ]
     },
     "pulse-hub": {
-      "totalPv": 1,
-      "totalUv": 1,
-      "d30Pv": 1,
-      "d30Uv": 1,
+      "totalPv": 6,
+      "totalUv": 3,
+      "d30Pv": 6,
+      "d30Uv": 3,
       "series": [
-        {
-          "day": "2026-10-10",
-          "pv": 0
-        },
         {
           "day": "2026-10-11",
           "pv": 0
@@ -557,12 +593,20 @@
         {
           "day": "2026-11-08",
           "pv": 1
+        },
+        {
+          "day": "2026-11-09",
+          "pv": 5
         }
       ],
       "top": [
         {
           "path": "/pulse-hub/",
-          "pv": 1
+          "pv": 4
+        },
+        {
+          "path": "/pulse-hub/channel/ai/",
+          "pv": 2
         }
       ]
     },
@@ -573,10 +617,6 @@
       "d30Uv": 0,
       "series": [
         {
-          "day": "2026-10-10",
-          "pv": 0
-        },
-        {
           "day": "2026-10-11",
           "pv": 0
         },
@@ -690,6 +730,10 @@
         },
         {
           "day": "2026-11-08",
+          "pv": 0
+        },
+        {
+          "day": "2026-11-09",
           "pv": 0
         }
       ],
@@ -702,10 +746,6 @@
       "d30Uv": 0,
       "series": [
         {
-          "day": "2026-10-10",
-          "pv": 0
-        },
-        {
           "day": "2026-10-11",
           "pv": 0
         },
@@ -820,13 +860,17 @@
         {
           "day": "2026-11-08",
           "pv": 0
+        },
+        {
+          "day": "2026-11-09",
+          "pv": 0
         }
       ],
       "top": []
     }
   },
   "total": {
-    "pv": 30,
-    "uv": 9
+    "pv": 74,
+    "uv": 18
   }
 }
