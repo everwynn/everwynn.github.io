@@ -22,10 +22,11 @@ type OverviewItem =
 
 const statusItems: OverviewItem[] = (
   [
-    ['ok', '正常', 'bg-ok'],
-    ['warn', '需关注', 'bg-warn'],
-    ['error', '异常', 'bg-danger'],
-    ['unknown', '未知', 'bg-muted/60'],
+    // label 自带量词，与 total 的「个站点」保持同一读法（7 个站点 · 7 个正常）
+    ['ok', '个正常', 'bg-ok'],
+    ['warn', '个需关注', 'bg-warn'],
+    ['error', '个异常', 'bg-danger'],
+    ['unknown', '个未知', 'bg-muted/60'],
   ] as const
 )
   .filter(([key]) => counts[key] > 0)
@@ -40,9 +41,9 @@ const overview: OverviewItem[] = [
 <BaseLayout title="EverWynn Station">
   <section class="mx-auto max-w-content px-4 pb-10 pt-12 sm:px-6 sm:pt-16">
     <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-muted">Station Index</p>
-    <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-[32px]">所有站点的总站</h1>
+    <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-[32px]">所有站点，一处入口</h1>
     <p class="mt-4 max-w-[60ch] text-balance text-[15px] leading-relaxed text-muted">
-      {sites.length} 个站点的入口、状态与数据新鲜度，每天两次自动刷新。
+      {sites.length} 个站点的入口与运行状态，每天自动更新两次。
     </p>
 
     <ul class="mt-8 flex min-h-11 flex-wrap items-center gap-y-1.5 text-sm">
