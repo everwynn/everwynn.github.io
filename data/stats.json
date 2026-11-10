@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-11-09T21:28:31.106Z",
+  "updatedAt": "2026-11-10T04:40:14.427Z",
   "window": 30,
   "sites": {
     "station": {
-      "totalPv": 25,
-      "totalUv": 4,
-      "d30Pv": 25,
-      "d30Uv": 4,
+      "totalPv": 27,
+      "totalUv": 5,
+      "d30Pv": 27,
+      "d30Uv": 5,
       "series": [
         {
           "day": "2026-10-12",
@@ -126,13 +126,13 @@
         },
         {
           "day": "2026-11-10",
-          "pv": 0
+          "pv": 2
         }
       ],
       "top": [
         {
           "path": "/",
-          "pv": 14
+          "pv": 16
         },
         {
           "path": "/stats/",
@@ -343,10 +343,10 @@
       ]
     },
     "lucky-hub": {
-      "totalPv": 4,
-      "totalUv": 3,
-      "d30Pv": 4,
-      "d30Uv": 3,
+      "totalPv": 24,
+      "totalUv": 4,
+      "d30Pv": 24,
+      "d30Uv": 4,
       "series": [
         {
           "day": "2026-10-12",
@@ -466,21 +466,29 @@
         },
         {
           "day": "2026-11-10",
-          "pv": 0
+          "pv": 20
         }
       ],
       "top": [
         {
           "path": "/lucky-hub/",
-          "pv": 4
+          "pv": 9
+        },
+        {
+          "path": "/lucky-hub/generate/",
+          "pv": 9
+        },
+        {
+          "path": "/lucky-hub/about/",
+          "pv": 6
         }
       ]
     },
     "pulse-hub": {
-      "totalPv": 7,
-      "totalUv": 4,
-      "d30Pv": 7,
-      "d30Uv": 4,
+      "totalPv": 12,
+      "totalUv": 6,
+      "d30Pv": 12,
+      "d30Uv": 6,
       "series": [
         {
           "day": "2026-10-12",
@@ -600,17 +608,17 @@
         },
         {
           "day": "2026-11-10",
-          "pv": 0
+          "pv": 5
         }
       ],
       "top": [
         {
           "path": "/pulse-hub/",
-          "pv": 5
+          "pv": 9
         },
         {
           "path": "/pulse-hub/channel/ai/",
-          "pv": 2
+          "pv": 3
         }
       ]
     },
@@ -884,7 +892,7 @@
     }
   },
   "total": {
-    "pv": 93,
-    "uv": 25
+    "pv": 120,
+    "uv": 29
   }
 }
