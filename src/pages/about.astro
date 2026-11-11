@@ -1,10 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getSites, getUpdatedAt } from '../lib/sites';
+import { getHealth, getSites, getUpdatedAt } from '../lib/sites';
 import { formatAbsolute } from '../lib/format';
 
 const sites = getSites();
 const updatedAt = getUpdatedAt();
+
+const health = getHealth();
+const healthEntries = health ? Object.entries(health.sites) : [];
+const healthFailed = healthEntries.filter(([, item]) => item.status !== 'ok');
 ---
 
 <BaseLayout
@@ -78,10 +82,16 @@ const updatedAt = getUpdatedAt();
               <td class="px-4 py-2 text-muted">最近一次抓取失败，或超过 45 天</td>
             </tr>
             <tr>
+              <td class="px-4 py-2">Tech Radar</td>
+              <td class="px-4 py-2 text-muted">数据源全成功、无缺失项且 3 天内更新</td>
+              <td class="px-4 py-2 text-muted">有源失败 / 有沿用上次，或 4–7 天</td>
+              <td class="px-4 py-2 text-muted">有缺失项，或超过 7 天</td>
+            </tr>
+            <tr>
               <td class="px-4 py-2">学习 / 工具站</td>
-              <td class="px-4 py-2 text-muted">最近提交在 90 天内</td>
-              <td class="px-4 py-2 text-muted">超过 90 天未提交</td>
-              <td class="px-4 py-2 text-muted">仓库信息请求失败时为未知</td>
+              <td class="px-4 py-2 text-muted">仓库可读即正常</td>
+              <td class="px-4 py-2 text-muted">—</td>
+              <td class="px-4 py-2 text-muted">—（提交时间只用于展示，不参与判定）</td>
             </tr>
           </tbody>
         </table>
@@ -101,12 +111,23 @@ const updatedAt = getUpdatedAt();
         门户每天自动刷新两次（北京时间 07:17 与 19:17），也可以在 GitHub Actions 中手动触发。
         本轮门户数据更新于 <time datetime={updatedAt}>{formatAbsolute(updatedAt)}</time>。数据没有变化时不会产生新的提交。
       </p>
+      {health && healthEntries.length > 0 && (
+        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+          {healthFailed.length === 0
+            ? `本轮 ${healthEntries.length} 个站点全部抓取成功。`
+            : `本轮 ${healthEntries.length} 个站点中 ${healthFailed.length} 个失败：${healthFailed
+                .map(([id, item]) => `${id}（${item.reason ?? '未知原因'}）`)
+                .join('、')}。失败站点沿用上一轮数据。`}
+        </p>
+      )}
     </section>
 
     <section class="mt-10">
       <h2 class="text-base font-semibold tracking-tight">隐私</h2>
       <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
-        门户没有账号系统，不收集访问数据，不加载第三方统计脚本。主题与筛选偏好仅保存在浏览器
+        门户没有账号系统，不收集个人身份信息。访问统计只记录站点名、页面路径与当日盐值哈希后的匿名访客标识，
+        不使用 cookie，不保存原始 IP，也不加载任何第三方统计脚本（细节见访问量页说明）。
+        主题与筛选偏好仅保存在浏览器
         <code class="font-mono text-xs">localStorage</code> 的 <code class="font-mono text-xs">station:</code> 前缀键中，
         清除浏览器数据即可移除。
       </p>

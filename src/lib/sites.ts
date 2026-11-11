@@ -20,6 +20,12 @@ export interface StatsFile {
   total: { pv: number; uv: number };
 }
 
+/** 每轮抓取的逐站结果，用于关于页展示本轮健康状况与人工排查 */
+export interface HealthFile {
+  updatedAt: string;
+  sites: Record<string, { status: 'ok' | 'error'; reason: string | null }>;
+}
+
 export interface SiteRecord {
   id: string;
   name: string;
@@ -67,6 +73,21 @@ export const stats: StatsFile | null = (() => {
 
 export function getStats(): StatsFile | null {
   return stats;
+}
+
+// 健康快照同样允许缺失：旧版本或首次构建时页面不展示本轮抓取段落
+export const health: HealthFile | null = (() => {
+  try {
+    return JSON.parse(
+      readFileSync(new URL('../../data/health.json', import.meta.url), 'utf8'),
+    ) as HealthFile;
+  } catch {
+    return null;
+  }
+})();
+
+export function getHealth(): HealthFile | null {
+  return health;
 }
 
 export function getSiteStats(id: string): VisitSummary | null {

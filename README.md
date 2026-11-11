@@ -16,7 +16,6 @@
 | [Repo Rank](https://everwynn.github.io/repo-rank/) | 数据 | `data/meta.json`、`data/health.json`、`data/index.json` |
 | [Stroke Annotation Tool](https://everwynn.github.io/stroke-annotation-tool/) | 工具 | 仓库最近提交 |
 | [Tech Radar](https://everwynn.github.io/tech-radar/) | 工具 | `data/catalog.json` |
-| [Whimsy Hub](https://everwynn.github.io/whimsy-hub/) | 体验 | 仓库最近提交 |
 
 ## 设计原则
 
@@ -34,7 +33,7 @@
 | 样式 | Tailwind CSS 3.4 + CSS 变量语义色，`darkMode: 'class'` |
 | 语言 | TypeScript 5.6（`astro check`） |
 | 运行时 | Node.js ≥ 20.6 |
-| 测试 | `node --test`，覆盖注册表、新鲜度、合并与 adapter，共 33 例 |
+| 测试 | `node --test`，覆盖注册表、新鲜度、合并、可见性与 adapter，共 44 例 |
 | 部署 | GitHub Actions → GitHub Pages |
 
 ## 快速开始
@@ -88,6 +87,10 @@ npm run preview   # 预览构建产物
 
 无法获取数据且没有历史记录时显示「未知」；有历史记录则保留旧数据，只把状态降级为「未知」并附原因。
 
+仓库连续两轮抓取都不可访问（转为私有、删除或改名）时，该站自动从门户移除，`data/sites.json` 里记为
+`visibility: "private"`；重新公开或改回正确地址后，下一轮抓取自动恢复。超时、限流、5xx 只记为「未知」
+并维持上一轮判定，不推进计数。
+
 内容站（学习 / 工具 / 体验）不做陈旧度告警：提交时间只能证明仓库可读，不能证明站点可用，
 也不代表内容过时。多久没动由卡片上的「最近更新 08-18」直接表达。
 
@@ -107,7 +110,7 @@ npm run preview   # 预览构建产物
   description: '一句话说明这个站做什么',
   tech: ['Astro', 'Vue'],                        // 卡片显示前两项，全部参与搜索
   adapter: 'commit',                             // 静态站直接用 commit
-  order: 55,                                     // 分类内排序，建议留出间隔
+  order: 55,                                     // 全站排序，建议留出间隔
 },
 ```
 
@@ -132,10 +135,10 @@ astro.config.mjs          Astro 配置（static、trailingSlash）
 tailwind.config.mjs       色板 token、字体与内容扫描
 scripts/fetch.mjs         抓取编排
 scripts/adapters/         commit / pulse / repo-rank / lucky
-scripts/lib/              http、files、freshness、registry
-data/                     sites.json、health.json（抓取生成，需提交）
+scripts/lib/              http、files、freshness、registry、visibility
+data/                     sites.json、health.json、stats.json（抓取生成，需提交）
 src/lib/                  构建期读取数据、格式化时间
-src/components/           SiteCard、StatusBadge、CategoryNav、ThemeToggle
+src/components/           SiteCard、StatusBadge、CategoryNav、ThemeToggle、VisitCounter、VisitCompareChart、VisitTrendChart
 src/layouts/              BaseLayout（页头、页脚、主题、SEO）
 src/pages/                首页、关于、404、robots.txt、sitemap.xml
 src/styles/               Tailwind 入口、主题变量、动效
