@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-11-11T13:38:49.220Z",
+  "updatedAt": "2026-11-11T14:14:09.526Z",
   "window": 30,
   "sites": {
     "station": {
-      "totalPv": 36,
-      "totalUv": 7,
-      "d30Pv": 36,
-      "d30Uv": 7,
+      "totalPv": 40,
+      "totalUv": 8,
+      "d30Pv": 40,
+      "d30Uv": 8,
       "series": [
         {
           "day": "2026-10-13",
@@ -126,21 +126,25 @@
         },
         {
           "day": "2026-11-11",
-          "pv": 0
+          "pv": 4
         }
       ],
       "top": [
         {
           "path": "/",
-          "pv": 23
+          "pv": 24
         },
         {
           "path": "/stats/",
-          "pv": 8
+          "pv": 9
         },
         {
           "path": "/whimsy-hub/",
           "pv": 5
+        },
+        {
+          "path": "/about/",
+          "pv": 2
         }
       ]
     },
@@ -908,7 +912,7 @@
     }
   },
   "total": {
-    "pv": 163,
-    "uv": 44
+    "pv": 167,
+    "uv": 45
   }
 }
