@@ -4,6 +4,7 @@ import VisitTrendChart from '../components/VisitTrendChart.astro';
 import VisitCompareChart from '../components/VisitCompareChart.astro';
 import { getSiteStats, getSites, getStats } from '../lib/sites';
 import type { SiteEntry, VisitSummary } from '../lib/sites';
+import { STATS_SITES } from '../../scripts/stats.mjs';
 import { formatAbsolute } from '../lib/format';
 
 const stats = getStats();
@@ -11,6 +12,11 @@ const sites = getSites();
 const withVisits = sites.filter(
   (site): site is SiteEntry & { visits: VisitSummary } => site.visits !== null,
 );
+
+// 接入与否以埋点白名单为准，不看快照里有没有数字：新站首次访问前快照中也是空的
+const trackedIds = new Set(STATS_SITES.filter((id) => id !== 'station'));
+const trackedCount = sites.filter((site) => trackedIds.has(site.id)).length;
+const untrackedNames = sites.filter((site) => !trackedIds.has(site.id)).map((site) => site.name);
 
 // 门户自身不在 sites.json 的导航列表里，但它同样接入了统计，单独并入汇总
 const stationStats = getSiteStats('station');
@@ -49,7 +55,8 @@ const fmt = (value: number) => value.toLocaleString('zh-CN');
     <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-muted">Visits</p>
     <h1 class="mt-3 text-3xl font-semibold tracking-tight sm:text-[32px]">访问量</h1>
     <p class="mt-4 max-w-[60ch] text-[15px] leading-relaxed text-muted">
-      仅统计接入的 6 个站点，数据每 12 小时更新一次；whimsy-hub 与 stroke-annotation-tool 不在此列。
+      仅统计门户自身与 {trackedCount} 个接入站点，数据每 12 小时更新一次
+      {untrackedNames.length > 0 ? `；${untrackedNames.join('、')} 未接入` : ''}。
     </p>
     {totalAll > 0 ? (
       <ul class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">

@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 
 export type Category = 'learn' | 'data' | 'tool' | 'experience';
 export type SiteStatus = 'ok' | 'warn' | 'error' | 'unknown';
+export type SiteVisibility = 'public' | 'private';
 
 export interface VisitSummary {
   totalPv: number;
@@ -34,6 +35,10 @@ export interface SiteRecord {
   statusDetail: string | null;
   summary: { label: string; detail: string | null } | null;
   order: number;
+  /** 连续两轮确认仓库不可公开访问后为 private，此时不对外展示 */
+  visibility?: SiteVisibility;
+  /** 连续判定为不可见的轮数，达到阈值后 visibility 才转为 private */
+  privateRounds?: number;
 }
 
 export interface SiteEntry extends SiteRecord {
@@ -78,11 +83,11 @@ export const CATEGORY_LABELS: Record<Category, string> = {
 export const CATEGORY_ORDER: Category[] = ['learn', 'data', 'tool', 'experience'];
 
 export function getSites(): SiteEntry[] {
+  // 顺序完全由 config 的 order 决定：各站不再按分类聚在一起，分类只用于筛选。
+  // private 表示仓库已连续两轮不可访问（转私有、删除或改名），对访客不再有入口意义。
   return [...data.sites]
-    .sort((a, b) => {
-      const categoryDiff = CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category);
-      return categoryDiff || a.order - b.order || a.name.localeCompare(b.name);
-    })
+    .filter((site) => site.visibility !== 'private')
+    .sort((a, b) => a.order - b.order || a.name.localeCompare(b.name))
     .map((site) => ({ ...site, visits: getSiteStats(site.id) }));
 }
 

@@ -78,7 +78,7 @@ const updatedAt = getUpdatedAt();
               <td class="px-4 py-2 text-muted">最近一次抓取失败，或超过 45 天</td>
             </tr>
             <tr>
-              <td class="px-4 py-2">学习 / 工具 / 体验站</td>
+              <td class="px-4 py-2">学习 / 工具站</td>
               <td class="px-4 py-2 text-muted">最近提交在 90 天内</td>
               <td class="px-4 py-2 text-muted">超过 90 天未提交</td>
               <td class="px-4 py-2 text-muted">仓库信息请求失败时为未知</td>
@@ -89,6 +89,8 @@ const updatedAt = getUpdatedAt();
       <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
         单站抓取失败不会影响其他站点：门户保留该站上一轮的展示数据，并把状态标为「未知」。
         任何站点在无法获取数据、也没有历史记录时同样显示「未知」。
+        仓库连续两轮抓取都不可访问（转为私有、删除或改名）时，该站会自动从门户移除；
+        重新公开或改回正确地址后，下一轮抓取自动恢复。
         Lucky Hub 的官方开奖接口对海外 IP 返回 403，因此它的数据只能在本机手动更新，状态长期可能显示「抓取失败」。
       </p>
     </section>

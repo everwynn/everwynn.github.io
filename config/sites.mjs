@@ -8,7 +8,7 @@ export const sites = [
     description: '算法、数据结构、设计模式与 Git 工作流的可视化学习站',
     tech: ['Astro', 'Vue', 'Tailwind'],
     adapter: 'commit',
-    order: 10,
+    order: 30,
   },
   {
     id: 'lucky-hub',
@@ -19,7 +19,7 @@ export const sites = [
     description: '福彩双色球开奖数据与选号站',
     tech: ['Astro', 'Vue', 'Tailwind'],
     adapter: 'lucky',
-    order: 20,
+    order: 60,
   },
   {
     id: 'pulse-hub',
@@ -30,7 +30,7 @@ export const sites = [
     description: 'AI、技术社区与财经三频道的行业头条聚合站',
     tech: ['Astro', 'Tailwind', 'Pagefind'],
     adapter: 'pulse',
-    order: 30,
+    order: 10,
   },
   {
     id: 'repo-rank',
@@ -41,7 +41,7 @@ export const sites = [
     description: '按语言、书籍与音频分类的 GitHub 仓库 star 排行榜',
     tech: ['Astro', 'Tailwind', 'Pagefind'],
     adapter: 'repo-rank',
-    order: 40,
+    order: 20,
   },
   {
     id: 'stroke-annotation-tool',
@@ -55,17 +55,6 @@ export const sites = [
     order: 50,
   },
   {
-    id: 'whimsy-hub',
-    name: 'Whimsy Hub',
-    url: 'https://everwynn.github.io/whimsy-hub/',
-    repo: 'EverWynn/whimsy-hub',
-    category: 'experience',
-    description: '以传统节日为主题的互动祝福体验站',
-    tech: ['Astro', 'Vue', 'GSAP'],
-    adapter: 'commit',
-    order: 60,
-  },
-  {
     id: 'tech-radar',
     name: 'Tech Radar',
     url: 'https://everwynn.github.io/tech-radar/',
@@ -74,6 +63,6 @@ export const sites = [
     description: '技术栈版本、EOL 与已知漏洞的每日核对看板',
     tech: ['Astro', 'Tailwind'],
     adapter: 'tech-radar',
-    order: 70,
+    order: 40,
   },
 ];

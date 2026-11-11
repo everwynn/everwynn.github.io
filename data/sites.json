@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T12:42:40.101Z",
+  "updatedAt": "2026-11-11T13:06:51.750Z",
   "sites": [
     {
       "id": "cs-lab",
@@ -14,13 +14,15 @@
         "Tailwind"
       ],
       "adapter": "commit",
-      "order": 10,
-      "lastCommitAt": "2026-11-08T13:27:33Z",
+      "order": 30,
+      "lastCommitAt": "2026-11-09T15:04:02Z",
       "dataUpdatedAt": null,
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
-      "summary": null
+      "summary": null,
+      "visibility": "public",
+      "privateRounds": 0
     },
     {
       "id": "lucky-hub",
@@ -35,8 +37,8 @@
         "Tailwind"
       ],
       "adapter": "lucky",
-      "order": 20,
-      "lastCommitAt": "2026-11-08T13:25:37Z",
+      "order": 60,
+      "lastCommitAt": "2026-11-09T14:59:52Z",
       "dataUpdatedAt": "2026-11-04T00:00:45.472Z",
       "status": "ok",
       "statusLabel": "正常",
@@ -44,7 +46,9 @@
       "summary": {
         "label": "第 2026126 期",
         "detail": "共 2084 期"
-      }
+      },
+      "visibility": "public",
+      "privateRounds": 0
     },
     {
       "id": "pulse-hub",
@@ -59,16 +63,18 @@
         "Pagefind"
       ],
       "adapter": "pulse",
-      "order": 30,
-      "lastCommitAt": "2026-11-09T06:21:46Z",
-      "dataUpdatedAt": "2026-11-09T06:21:39.774Z",
+      "order": 10,
+      "lastCommitAt": "2026-11-11T06:11:11Z",
+      "dataUpdatedAt": "2026-11-11T06:11:05.493Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
       "summary": {
         "label": "19/22 源正常",
-        "detail": "今日 62 条"
-      }
+        "detail": "今日 85 条"
+      },
+      "visibility": "public",
+      "privateRounds": 0
     },
     {
       "id": "repo-rank",
@@ -83,16 +89,18 @@
         "Pagefind"
       ],
       "adapter": "repo-rank",
-      "order": 40,
-      "lastCommitAt": "2026-11-09T02:48:46Z",
-      "dataUpdatedAt": "2026-11-09T02:42:40.371Z",
+      "order": 20,
+      "lastCommitAt": "2026-11-11T02:56:52Z",
+      "dataUpdatedAt": "2026-11-11T02:50:30.906Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
       "summary": {
         "label": "92 次查询",
         "detail": "30 个分类"
-      }
+      },
+      "visibility": "public",
+      "privateRounds": 0
     },
     {
       "id": "stroke-annotation-tool",
@@ -113,28 +121,9 @@
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
-      "summary": null
-    },
-    {
-      "id": "whimsy-hub",
-      "name": "Whimsy Hub",
-      "url": "https://everwynn.github.io/whimsy-hub/",
-      "repo": "EverWynn/whimsy-hub",
-      "category": "experience",
-      "description": "以传统节日为主题的互动祝福体验站",
-      "tech": [
-        "Astro",
-        "Vue",
-        "GSAP"
-      ],
-      "adapter": "commit",
-      "order": 60,
-      "lastCommitAt": "2026-08-19T15:57:59Z",
-      "dataUpdatedAt": null,
-      "status": "ok",
-      "statusLabel": "正常",
-      "statusDetail": null,
-      "summary": null
+      "summary": null,
+      "visibility": "public",
+      "privateRounds": 0
     },
     {
       "id": "tech-radar",
@@ -148,16 +137,18 @@
         "Tailwind"
       ],
       "adapter": "tech-radar",
-      "order": 70,
-      "lastCommitAt": "2026-11-08T13:23:44Z",
-      "dataUpdatedAt": "2026-11-07T02:20:15.001Z",
+      "order": 40,
+      "lastCommitAt": "2026-11-11T02:13:12Z",
+      "dataUpdatedAt": "2026-11-11T02:13:11.758Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
       "summary": {
         "label": "15 项技术",
         "detail": "10 项有 EOL · 9 项可查漏洞"
-      }
+      },
+      "visibility": "public",
+      "privateRounds": 0
     }
   ]
 }

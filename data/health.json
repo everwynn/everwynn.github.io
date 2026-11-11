@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-08T11:28:17.598Z",
+  "updatedAt": "2026-11-11T13:06:51.750Z",
   "sites": {
     "cs-lab": {
       "status": "ok",
@@ -20,10 +20,6 @@
     "stroke-annotation-tool": {
       "status": "ok",
       "reason": null
-    },
-    "whimsy-hub": {
-      "status": "error",
-      "reason": "仓库信息获取失败：HTTP 404 Not Found"
     },
     "tech-radar": {
       "status": "ok",

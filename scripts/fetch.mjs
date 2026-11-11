@@ -2,8 +2,9 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { sites } from '../config/sites.mjs';
 import { validateSites } from './lib/registry.mjs';
-import { fetchJson } from './lib/http.mjs';
+import { HttpError, fetchJson } from './lib/http.mjs';
 import { mergeSites, readJson, writeJsonIfChanged } from './lib/files.mjs';
+import { PROBE, resolveVisibility } from './lib/visibility.mjs';
 import { adaptCommit } from './adapters/commit.mjs';
 import { adaptPulse } from './adapters/pulse.mjs';
 import { adaptRepoRank } from './adapters/repo-rank.mjs';
@@ -96,29 +97,48 @@ async function run() {
     let reason = null;
     let result;
 
+    let repoInfo = null;
+    let probe = PROBE.ERROR;
     try {
-      let pushedAt = null;
-      try {
-        const repoInfo = await fetchJson(`https://api.github.com/repos/${site.repo}`, {
-          headers: githubHeaders(),
-          retries: 3,
-        });
-        pushedAt = repoInfo?.pushed_at ?? null;
-      } catch (error) {
-        reason = `仓库信息获取失败：${error.message}`;
-      }
+      repoInfo = await fetchJson(`https://api.github.com/repos/${site.repo}`, {
+        headers: githubHeaders(),
+        retries: 3,
+      });
+      // 自己的 token 能读到 private 字段；读不到时，200 本身已是「公开」的证据
+      probe = repoInfo?.private === true ? PROBE.PRIVATE : PROBE.PUBLIC;
+    } catch (error) {
+      // 404 是「私有 / 删除 / 改名」在当前 token 下唯一能拿到的信号
+      probe = error instanceof HttpError && error.status === 404 ? PROBE.PRIVATE : PROBE.ERROR;
+      reason = probe === PROBE.PRIVATE
+        ? '仓库不可访问：可能已转为私有、删除或改名'
+        : `仓库信息获取失败：${error.message}`;
+    }
 
-      pushedAt = pushedAt ?? previousSite?.lastCommitAt ?? null;
+    try {
+      if (probe === PROBE.PRIVATE) {
+        // 不回填旧提交时间：否则 commit 适配器会把一个打不开的仓库算成「正常」
+        result = {
+          lastCommitAt: previousSite?.lastCommitAt ?? null,
+          dataUpdatedAt: previousSite?.dataUpdatedAt ?? null,
+          status: 'unknown',
+          statusLabel: '未知',
+          statusDetail: reason,
+          summary: null,
+        };
+      } else {
+        let pushedAt = repoInfo?.pushed_at ?? null;
+        pushedAt = pushedAt ?? previousSite?.lastCommitAt ?? null;
 
-      const files = {};
-      for (const path of DATA_FILES[site.adapter] ?? []) {
-        files[path] = await readRepoFile(site.repo, site.branch ?? 'main', path);
-        await sleep(120);
-      }
+        const files = {};
+        for (const path of DATA_FILES[site.adapter] ?? []) {
+          files[path] = await readRepoFile(site.repo, site.branch ?? 'main', path);
+          await sleep(120);
+        }
 
-      result = ADAPTERS[site.adapter]({ pushedAt, files }, now);
-      if (result.status === 'unknown' && !reason) {
-        reason = result.statusDetail ?? '数据不可用';
+        result = ADAPTERS[site.adapter]({ pushedAt, files }, now);
+        if (result.status === 'unknown' && !reason) {
+          reason = result.statusDetail ?? '数据不可用';
+        }
       }
     } catch (error) {
       reason = error.message;
@@ -132,7 +152,7 @@ async function run() {
       };
     }
 
-    nextSites.push(mergeSites(previousSites, { ...site, ...result }));
+    nextSites.push(mergeSites(previousSites, { ...site, ...result, ...resolveVisibility(probe, previousSite) }));
     healthSites[site.id] = { status: reason ? 'error' : 'ok', reason };
 
     const duration = Date.now() - started;

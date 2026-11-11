@@ -26,6 +26,9 @@ export function mergeSites(previousSites, nextSite) {
   if (!previous) return nextSite;
   return {
     ...previous,
+    // 可见性由本轮探测得出，不能被上一轮的快照覆盖，否则防抖计数永远停在 0
+    visibility: nextSite.visibility ?? previous.visibility,
+    privateRounds: nextSite.privateRounds ?? previous.privateRounds,
     status: 'unknown',
     statusLabel: STATUS_LABELS.unknown,
     statusDetail: nextSite.statusDetail ?? previous.statusDetail ?? '本轮未获取到数据',

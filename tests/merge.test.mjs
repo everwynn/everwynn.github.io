@@ -22,3 +22,19 @@ test('正常结果直接返回', () => {
   const next = { id: 'cs-lab', status: 'ok' };
   assert.equal(mergeSites([], next), next);
 });
+
+test('本轮可见性不被上一轮快照覆盖', () => {
+  const previous = [{
+    id: 'cs-lab', status: 'ok', visibility: 'public', privateRounds: 0,
+    summary: { label: '上轮摘要', detail: null },
+  }];
+  const next = {
+    id: 'cs-lab', status: 'unknown', statusLabel: '未知',
+    statusDetail: '仓库不可访问', summary: null,
+    visibility: 'public', privateRounds: 2,
+  };
+  const merged = mergeSites(previous, next);
+  assert.equal(merged.privateRounds, 2);
+  assert.equal(merged.visibility, 'public');
+  assert.equal(merged.summary.label, '上轮摘要');
+});
