@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-11T13:06:51.750Z",
+  "updatedAt": "2026-11-11T18:43:50.055Z",
   "sites": [
     {
       "id": "cs-lab",
@@ -64,14 +64,14 @@
       ],
       "adapter": "pulse",
       "order": 10,
-      "lastCommitAt": "2026-11-11T06:11:11Z",
-      "dataUpdatedAt": "2026-11-11T06:11:05.493Z",
+      "lastCommitAt": "2026-11-11T16:09:00Z",
+      "dataUpdatedAt": "2026-11-11T16:08:54.552Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
       "summary": {
         "label": "19/22 源正常",
-        "detail": "今日 85 条"
+        "detail": "今日 20 条"
       },
       "visibility": "public",
       "privateRounds": 0
