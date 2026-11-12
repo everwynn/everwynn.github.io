@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-11-11T18:43:50.055Z",
+  "updatedAt": "2026-11-12T03:52:33.470Z",
   "window": 30,
   "sites": {
     "station": {
-      "totalPv": 40,
-      "totalUv": 8,
-      "d30Pv": 40,
-      "d30Uv": 8,
+      "totalPv": 41,
+      "totalUv": 9,
+      "d30Pv": 41,
+      "d30Uv": 9,
       "series": [
         {
           "day": "2026-10-14",
@@ -126,13 +126,13 @@
         },
         {
           "day": "2026-11-12",
-          "pv": 0
+          "pv": 1
         }
       ],
       "top": [
         {
           "path": "/",
-          "pv": 24
+          "pv": 25
         },
         {
           "path": "/stats/",
@@ -149,10 +149,10 @@
       ]
     },
     "cs-lab": {
-      "totalPv": 82,
-      "totalUv": 22,
-      "d30Pv": 82,
-      "d30Uv": 22,
+      "totalPv": 87,
+      "totalUv": 25,
+      "d30Pv": 87,
+      "d30Uv": 25,
       "series": [
         {
           "day": "2026-10-14",
@@ -272,7 +272,7 @@
         },
         {
           "day": "2026-11-12",
-          "pv": 0
+          "pv": 5
         }
       ],
       "top": [
@@ -286,7 +286,11 @@
         },
         {
           "path": "/cs-lab/algorithms/",
-          "pv": 10
+          "pv": 12
+        },
+        {
+          "path": "/cs-lab/algorithms/sorting/quick-sort/",
+          "pv": 6
         },
         {
           "path": "/cs-lab/design-patterns/",
@@ -301,16 +305,16 @@
           "pv": 5
         },
         {
-          "path": "/cs-lab/algorithms/sorting/quick-sort/",
-          "pv": 5
-        },
-        {
           "path": "/cs-lab/data-structures/stack/",
           "pv": 4
         },
         {
           "path": "/cs-lab/algorithms/sorting/heap-sort/",
           "pv": 3
+        },
+        {
+          "path": "/cs-lab/algorithms/graph/dfs/",
+          "pv": 2
         },
         {
           "path": "/cs-lab/data-structures/bst/",
@@ -321,11 +325,11 @@
           "pv": 2
         },
         {
-          "path": "/cs-lab/algorithms/graph/dfs/",
+          "path": "/cs-lab/algorithms/searching/binary-search/",
           "pv": 1
         },
         {
-          "path": "/cs-lab/algorithms/searching/binary-search/",
+          "path": "/cs-lab/algorithms/sorting/insertion-sort/",
           "pv": 1
         },
         {
@@ -350,10 +354,6 @@
         },
         {
           "path": "/cs-lab/git-workflow/",
-          "pv": 1
-        },
-        {
-          "path": "/cs-lab/git-workflow/basics/",
           "pv": 1
         }
       ]
@@ -501,10 +501,10 @@
       ]
     },
     "pulse-hub": {
-      "totalPv": 19,
-      "totalUv": 8,
-      "d30Pv": 19,
-      "d30Uv": 8,
+      "totalPv": 23,
+      "totalUv": 9,
+      "d30Pv": 23,
+      "d30Uv": 9,
       "series": [
         {
           "day": "2026-10-14",
@@ -624,21 +624,25 @@
         },
         {
           "day": "2026-11-12",
-          "pv": 0
+          "pv": 4
         }
       ],
       "top": [
         {
           "path": "/pulse-hub/",
-          "pv": 13
+          "pv": 15
         },
         {
           "path": "/pulse-hub/channel/ai/",
-          "pv": 3
+          "pv": 4
         },
         {
           "path": "/pulse-hub/channel/tech/",
           "pv": 3
+        },
+        {
+          "path": "/pulse-hub/channel/finance/",
+          "pv": 1
         }
       ]
     },
@@ -912,7 +916,7 @@
     }
   },
   "total": {
-    "pv": 170,
-    "uv": 46
+    "pv": 180,
+    "uv": 51
   }
 }
