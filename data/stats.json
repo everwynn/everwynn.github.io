@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-12T18:58:24.155Z",
+  "updatedAt": "2026-11-13T03:27:41.757Z",
   "window": 30,
   "sites": {
     "station": {
@@ -149,10 +149,10 @@
       ]
     },
     "cs-lab": {
-      "totalPv": 114,
-      "totalUv": 32,
-      "d30Pv": 114,
-      "d30Uv": 32,
+      "totalPv": 118,
+      "totalUv": 33,
+      "d30Pv": 118,
+      "d30Uv": 33,
       "series": [
         {
           "day": "2026-10-15",
@@ -272,7 +272,7 @@
         },
         {
           "day": "2026-11-13",
-          "pv": 3
+          "pv": 7
         }
       ],
       "top": [
@@ -317,6 +317,10 @@
           "pv": 4
         },
         {
+          "path": "/cs-lab/git-workflow/",
+          "pv": 4
+        },
+        {
           "path": "/cs-lab/algorithms/graph/dfs/",
           "pv": 2
         },
@@ -329,7 +333,11 @@
           "pv": 2
         },
         {
-          "path": "/cs-lab/git-workflow/",
+          "path": "/cs-lab/git-workflow/basics/",
+          "pv": 2
+        },
+        {
+          "path": "/cs-lab/git-workflow/branching/",
           "pv": 2
         },
         {
@@ -346,14 +354,6 @@
         },
         {
           "path": "/cs-lab/algorithms/sorting/insertion-sort/",
-          "pv": 1
-        },
-        {
-          "path": "/cs-lab/algorithms/sorting/selection-sort/",
-          "pv": 1
-        },
-        {
-          "path": "/cs-lab/data-structures/array-list/",
           "pv": 1
         }
       ]
@@ -916,7 +916,7 @@
     }
   },
   "total": {
-    "pv": 214,
-    "uv": 61
+    "pv": 218,
+    "uv": 62
   }
 }
