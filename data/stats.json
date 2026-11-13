@@ -1,17 +1,13 @@
 {
-  "updatedAt": "2026-11-13T03:27:41.757Z",
+  "updatedAt": "2026-11-13T18:34:09.082Z",
   "window": 30,
   "sites": {
     "station": {
-      "totalPv": 44,
-      "totalUv": 11,
-      "d30Pv": 44,
-      "d30Uv": 11,
+      "totalPv": 51,
+      "totalUv": 15,
+      "d30Pv": 51,
+      "d30Uv": 15,
       "series": [
-        {
-          "day": "2026-10-15",
-          "pv": 0
-        },
         {
           "day": "2026-10-16",
           "pv": 0
@@ -126,17 +122,21 @@
         },
         {
           "day": "2026-11-13",
-          "pv": 1
+          "pv": 8
+        },
+        {
+          "day": "2026-11-14",
+          "pv": 0
         }
       ],
       "top": [
         {
           "path": "/",
-          "pv": 28
+          "pv": 32
         },
         {
           "path": "/stats/",
-          "pv": 9
+          "pv": 12
         },
         {
           "path": "/whimsy-hub/",
@@ -149,15 +149,11 @@
       ]
     },
     "cs-lab": {
-      "totalPv": 118,
-      "totalUv": 33,
-      "d30Pv": 118,
-      "d30Uv": 33,
+      "totalPv": 142,
+      "totalUv": 39,
+      "d30Pv": 142,
+      "d30Uv": 39,
       "series": [
-        {
-          "day": "2026-10-15",
-          "pv": 0
-        },
         {
           "day": "2026-10-16",
           "pv": 0
@@ -272,13 +268,17 @@
         },
         {
           "day": "2026-11-13",
-          "pv": 7
+          "pv": 28
+        },
+        {
+          "day": "2026-11-14",
+          "pv": 3
         }
       ],
       "top": [
         {
           "path": "/cs-lab/",
-          "pv": 20
+          "pv": 26
         },
         {
           "path": "/cs-lab/data-structures/",
@@ -286,18 +286,26 @@
         },
         {
           "path": "/cs-lab/algorithms/",
-          "pv": 16
+          "pv": 18
+        },
+        {
+          "path": "/cs-lab/database/",
+          "pv": 11
         },
         {
           "path": "/cs-lab/design-patterns/",
-          "pv": 8
+          "pv": 10
         },
         {
           "path": "/cs-lab/algorithms/sorting/bubble-sort/",
-          "pv": 6
+          "pv": 7
         },
         {
           "path": "/cs-lab/algorithms/sorting/quick-sort/",
+          "pv": 6
+        },
+        {
+          "path": "/cs-lab/git-workflow/",
           "pv": 6
         },
         {
@@ -313,12 +321,12 @@
           "pv": 4
         },
         {
-          "path": "/cs-lab/database/",
-          "pv": 4
+          "path": "/cs-lab/git-workflow/basics/",
+          "pv": 3
         },
         {
-          "path": "/cs-lab/git-workflow/",
-          "pv": 4
+          "path": "/cs-lab/algorithms/graph/bfs/",
+          "pv": 2
         },
         {
           "path": "/cs-lab/algorithms/graph/dfs/",
@@ -333,15 +341,11 @@
           "pv": 2
         },
         {
-          "path": "/cs-lab/git-workflow/basics/",
-          "pv": 2
-        },
-        {
           "path": "/cs-lab/git-workflow/branching/",
           "pv": 2
         },
         {
-          "path": "/cs-lab/algorithms/graph/bfs/",
+          "path": "/cs-lab/about/",
           "pv": 1
         },
         {
@@ -350,10 +354,6 @@
         },
         {
           "path": "/cs-lab/algorithms/searching/binary-search/",
-          "pv": 1
-        },
-        {
-          "path": "/cs-lab/algorithms/sorting/insertion-sort/",
           "pv": 1
         }
       ]
@@ -364,10 +364,6 @@
       "d30Pv": 29,
       "d30Uv": 6,
       "series": [
-        {
-          "day": "2026-10-15",
-          "pv": 0
-        },
         {
           "day": "2026-10-16",
           "pv": 0
@@ -483,6 +479,10 @@
         {
           "day": "2026-11-13",
           "pv": 0
+        },
+        {
+          "day": "2026-11-14",
+          "pv": 0
         }
       ],
       "top": [
@@ -506,10 +506,6 @@
       "d30Pv": 23,
       "d30Uv": 9,
       "series": [
-        {
-          "day": "2026-10-15",
-          "pv": 0
-        },
         {
           "day": "2026-10-16",
           "pv": 0
@@ -625,6 +621,10 @@
         {
           "day": "2026-11-13",
           "pv": 0
+        },
+        {
+          "day": "2026-11-14",
+          "pv": 0
         }
       ],
       "top": [
@@ -652,10 +652,6 @@
       "d30Pv": 1,
       "d30Uv": 1,
       "series": [
-        {
-          "day": "2026-10-15",
-          "pv": 0
-        },
         {
           "day": "2026-10-16",
           "pv": 0
@@ -771,6 +767,10 @@
         {
           "day": "2026-11-13",
           "pv": 0
+        },
+        {
+          "day": "2026-11-14",
+          "pv": 0
         }
       ],
       "top": [
@@ -786,10 +786,6 @@
       "d30Pv": 3,
       "d30Uv": 2,
       "series": [
-        {
-          "day": "2026-10-15",
-          "pv": 0
-        },
         {
           "day": "2026-10-16",
           "pv": 0
@@ -905,6 +901,10 @@
         {
           "day": "2026-11-13",
           "pv": 0
+        },
+        {
+          "day": "2026-11-14",
+          "pv": 0
         }
       ],
       "top": [
@@ -916,7 +916,7 @@
     }
   },
   "total": {
-    "pv": 218,
-    "uv": 62
+    "pv": 249,
+    "uv": 72
   }
 }
