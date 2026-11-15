@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-11-15T02:46:33.222Z",
+  "updatedAt": "2026-11-15T11:43:15.116Z",
   "window": 30,
   "sites": {
     "station": {
-      "totalPv": 61,
-      "totalUv": 18,
-      "d30Pv": 61,
-      "d30Uv": 18,
+      "totalPv": 63,
+      "totalUv": 20,
+      "d30Pv": 63,
+      "d30Uv": 20,
       "series": [
         {
           "day": "2026-10-17",
@@ -126,13 +126,13 @@
         },
         {
           "day": "2026-11-15",
-          "pv": 1
+          "pv": 3
         }
       ],
       "top": [
         {
           "path": "/",
-          "pv": 40
+          "pv": 42
         },
         {
           "path": "/stats/",
@@ -149,10 +149,10 @@
       ]
     },
     "cs-lab": {
-      "totalPv": 181,
-      "totalUv": 46,
-      "d30Pv": 181,
-      "d30Uv": 46,
+      "totalPv": 189,
+      "totalUv": 50,
+      "d30Pv": 189,
+      "d30Uv": 50,
       "series": [
         {
           "day": "2026-10-17",
@@ -272,7 +272,7 @@
         },
         {
           "day": "2026-11-15",
-          "pv": 1
+          "pv": 9
         }
       ],
       "top": [
@@ -282,7 +282,7 @@
         },
         {
           "path": "/cs-lab/algorithms/",
-          "pv": 26
+          "pv": 29
         },
         {
           "path": "/cs-lab/data-structures/",
@@ -297,6 +297,10 @@
           "pv": 11
         },
         {
+          "path": "/cs-lab/algorithms/sorting/quick-sort/",
+          "pv": 9
+        },
+        {
           "path": "/cs-lab/algorithms/sorting/bubble-sort/",
           "pv": 7
         },
@@ -305,12 +309,12 @@
           "pv": 7
         },
         {
-          "path": "/cs-lab/algorithms/sorting/quick-sort/",
-          "pv": 6
-        },
-        {
           "path": "/cs-lab/__smoke__/",
           "pv": 5
+        },
+        {
+          "path": "/cs-lab/algorithms/graph/bfs/",
+          "pv": 4
         },
         {
           "path": "/cs-lab/algorithms/sorting/heap-sort/",
@@ -319,10 +323,6 @@
         {
           "path": "/cs-lab/data-structures/stack/",
           "pv": 4
-        },
-        {
-          "path": "/cs-lab/algorithms/graph/bfs/",
-          "pv": 3
         },
         {
           "path": "/cs-lab/algorithms/graph/dfs/",
@@ -920,7 +920,7 @@
     }
   },
   "total": {
-    "pv": 304,
-    "uv": 85
+    "pv": 314,
+    "uv": 91
   }
 }
