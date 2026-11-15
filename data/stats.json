@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-11-15T11:43:15.116Z",
+  "updatedAt": "2026-11-15T13:15:15.528Z",
   "window": 30,
   "sites": {
     "station": {
-      "totalPv": 63,
-      "totalUv": 20,
-      "d30Pv": 63,
-      "d30Uv": 20,
+      "totalPv": 73,
+      "totalUv": 24,
+      "d30Pv": 73,
+      "d30Uv": 24,
       "series": [
         {
           "day": "2026-10-17",
@@ -126,13 +126,13 @@
         },
         {
           "day": "2026-11-15",
-          "pv": 3
+          "pv": 13
         }
       ],
       "top": [
         {
           "path": "/",
-          "pv": 42
+          "pv": 49
         },
         {
           "path": "/stats/",
@@ -143,16 +143,20 @@
           "pv": 5
         },
         {
+          "path": "/probe-retry",
+          "pv": 3
+        },
+        {
           "path": "/about/",
           "pv": 2
         }
       ]
     },
     "cs-lab": {
-      "totalPv": 189,
-      "totalUv": 50,
-      "d30Pv": 189,
-      "d30Uv": 50,
+      "totalPv": 193,
+      "totalUv": 51,
+      "d30Pv": 193,
+      "d30Uv": 51,
       "series": [
         {
           "day": "2026-10-17",
@@ -272,17 +276,17 @@
         },
         {
           "day": "2026-11-15",
-          "pv": 9
+          "pv": 13
         }
       ],
       "top": [
         {
           "path": "/cs-lab/",
-          "pv": 36
+          "pv": 38
         },
         {
           "path": "/cs-lab/algorithms/",
-          "pv": 29
+          "pv": 31
         },
         {
           "path": "/cs-lab/data-structures/",
@@ -501,10 +505,10 @@
       ]
     },
     "pulse-hub": {
-      "totalPv": 26,
-      "totalUv": 10,
-      "d30Pv": 26,
-      "d30Uv": 10,
+      "totalPv": 28,
+      "totalUv": 11,
+      "d30Pv": 28,
+      "d30Uv": 11,
       "series": [
         {
           "day": "2026-10-17",
@@ -624,13 +628,13 @@
         },
         {
           "day": "2026-11-15",
-          "pv": 0
+          "pv": 2
         }
       ],
       "top": [
         {
           "path": "/pulse-hub/",
-          "pv": 17
+          "pv": 19
         },
         {
           "path": "/pulse-hub/channel/ai/",
@@ -651,10 +655,10 @@
       ]
     },
     "repo-rank": {
-      "totalPv": 1,
-      "totalUv": 1,
-      "d30Pv": 1,
-      "d30Uv": 1,
+      "totalPv": 3,
+      "totalUv": 2,
+      "d30Pv": 3,
+      "d30Uv": 2,
       "series": [
         {
           "day": "2026-10-17",
@@ -774,13 +778,13 @@
         },
         {
           "day": "2026-11-15",
-          "pv": 0
+          "pv": 2
         }
       ],
       "top": [
         {
           "path": "/repo-rank/",
-          "pv": 1
+          "pv": 3
         }
       ]
     },
@@ -920,7 +924,7 @@
     }
   },
   "total": {
-    "pv": 314,
-    "uv": 91
+    "pv": 332,
+    "uv": 98
   }
 }
