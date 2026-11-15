@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-11-14T17:11:41.877Z",
+  "updatedAt": "2026-11-15T02:46:33.222Z",
   "window": 30,
   "sites": {
     "station": {
-      "totalPv": 60,
-      "totalUv": 17,
-      "d30Pv": 60,
-      "d30Uv": 17,
+      "totalPv": 61,
+      "totalUv": 18,
+      "d30Pv": 61,
+      "d30Uv": 18,
       "series": [
         {
           "day": "2026-10-17",
@@ -126,13 +126,13 @@
         },
         {
           "day": "2026-11-15",
-          "pv": 0
+          "pv": 1
         }
       ],
       "top": [
         {
           "path": "/",
-          "pv": 39
+          "pv": 40
         },
         {
           "path": "/stats/",
@@ -149,10 +149,10 @@
       ]
     },
     "cs-lab": {
-      "totalPv": 180,
-      "totalUv": 45,
-      "d30Pv": 180,
-      "d30Uv": 45,
+      "totalPv": 181,
+      "totalUv": 46,
+      "d30Pv": 181,
+      "d30Uv": 46,
       "series": [
         {
           "day": "2026-10-17",
@@ -272,7 +272,7 @@
         },
         {
           "day": "2026-11-15",
-          "pv": 0
+          "pv": 1
         }
       ],
       "top": [
@@ -286,7 +286,7 @@
         },
         {
           "path": "/cs-lab/data-structures/",
-          "pv": 23
+          "pv": 24
         },
         {
           "path": "/cs-lab/database/",
@@ -920,7 +920,7 @@
     }
   },
   "total": {
-    "pv": 302,
-    "uv": 83
+    "pv": 304,
+    "uv": 85
   }
 }
