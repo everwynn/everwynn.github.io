@@ -16,6 +16,7 @@
 | [Repo Rank](https://everwynn.github.io/repo-rank/) | 数据 | `data/meta.json`、`data/health.json`、`data/index.json` |
 | [Stroke Annotation Tool](https://everwynn.github.io/stroke-annotation-tool/) | 工具 | 仓库最近提交 |
 | [Tech Radar](https://everwynn.github.io/tech-radar/) | 工具 | `data/catalog.json` |
+| [ToolHub](https://everwynn.github.io/tool-hub/) | 工具 | 仓库最近提交 |
 
 ## 设计原则
 
@@ -134,7 +135,7 @@ config/sites.mjs          站点注册表（唯一维护入口）
 astro.config.mjs          Astro 配置（static、trailingSlash）
 tailwind.config.mjs       色板 token、字体与内容扫描
 scripts/fetch.mjs         抓取编排
-scripts/adapters/         commit / pulse / repo-rank / lucky
+scripts/adapters/         commit / pulse / repo-rank / lucky / tech-radar
 scripts/lib/              http、files、freshness、registry、visibility
 data/                     sites.json、health.json、stats.json（抓取生成，需提交）
 src/lib/                  构建期读取数据、格式化时间
