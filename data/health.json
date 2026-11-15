@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-11T13:06:51.750Z",
+  "updatedAt": "2026-11-15T11:03:12.490Z",
   "sites": {
     "cs-lab": {
       "status": "ok",
@@ -22,6 +22,10 @@
       "reason": null
     },
     "tech-radar": {
+      "status": "ok",
+      "reason": null
+    },
+    "tool-hub": {
       "status": "ok",
       "reason": null
     }

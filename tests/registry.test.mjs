@@ -5,7 +5,7 @@ import { validateSites } from '../scripts/lib/registry.mjs';
 
 test('内置注册表合法', () => {
   assert.doesNotThrow(() => validateSites(sites));
-  assert.equal(sites.length, 6);
+  assert.equal(sites.length, 7);
 });
 
 test('拒绝重复 id', () => {

@@ -65,4 +65,15 @@ export const sites = [
     adapter: 'tech-radar',
     order: 40,
   },
+  {
+    id: 'tool-hub',
+    name: 'ToolHub',
+    url: 'https://everwynn.github.io/tool-hub/',
+    repo: 'EverWynn/tool-hub',
+    category: 'tool',
+    description: '37 个开发者常用工具的在线工具箱：格式化、编解码、加密与图片处理，全部浏览器本地运算',
+    tech: ['Astro', 'Vue', 'Tailwind'],
+    adapter: 'commit',
+    order: 70,
+  },
 ];
