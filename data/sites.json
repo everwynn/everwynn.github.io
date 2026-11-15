@@ -71,7 +71,7 @@
       "statusDetail": null,
       "summary": {
         "label": "19/22 源正常",
-        "detail": "今日 43 条"
+        "detail": "今日 117 条"
       },
       "visibility": "public",
       "privateRounds": 0
@@ -90,8 +90,8 @@
       ],
       "adapter": "repo-rank",
       "order": 20,
-      "lastCommitAt": "2026-11-15T02:50:44Z",
-      "dataUpdatedAt": "2026-11-15T02:44:28.810Z",
+      "lastCommitAt": "2026-11-14T17:17:46Z",
+      "dataUpdatedAt": "2026-11-14T17:11:29.783Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
