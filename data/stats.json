@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-11-16T21:04:55.696Z",
+  "updatedAt": "2026-11-17T05:07:06.719Z",
   "window": 30,
   "sites": {
     "station": {
-      "totalPv": 79,
-      "totalUv": 29,
-      "d30Pv": 79,
-      "d30Uv": 29,
+      "totalPv": 81,
+      "totalUv": 30,
+      "d30Pv": 81,
+      "d30Uv": 30,
       "series": [
         {
           "day": "2026-10-19",
@@ -126,13 +126,13 @@
         },
         {
           "day": "2026-11-17",
-          "pv": 0
+          "pv": 2
         }
       ],
       "top": [
         {
           "path": "/",
-          "pv": 55
+          "pv": 57
         },
         {
           "path": "/stats/",
@@ -505,10 +505,10 @@
       ]
     },
     "pulse-hub": {
-      "totalPv": 39,
-      "totalUv": 16,
-      "d30Pv": 39,
-      "d30Uv": 16,
+      "totalPv": 47,
+      "totalUv": 19,
+      "d30Pv": 47,
+      "d30Uv": 19,
       "series": [
         {
           "day": "2026-10-19",
@@ -628,21 +628,21 @@
         },
         {
           "day": "2026-11-17",
-          "pv": 0
+          "pv": 8
         }
       ],
       "top": [
         {
           "path": "/pulse-hub/",
-          "pv": 27
-        },
-        {
-          "path": "/pulse-hub/channel/ai/",
-          "pv": 4
+          "pv": 30
         },
         {
           "path": "/pulse-hub/channel/finance/",
-          "pv": 4
+          "pv": 8
+        },
+        {
+          "path": "/pulse-hub/channel/ai/",
+          "pv": 5
         },
         {
           "path": "/pulse-hub/channel/tech/",
@@ -924,7 +924,7 @@
     }
   },
   "total": {
-    "pv": 367,
-    "uv": 115
+    "pv": 377,
+    "uv": 119
   }
 }
