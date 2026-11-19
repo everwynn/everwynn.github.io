@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T04:14:47.217Z",
+  "updatedAt": "2026-11-19T19:30:25.401Z",
   "sites": [
     {
       "id": "cs-lab",
@@ -64,14 +64,14 @@
       ],
       "adapter": "pulse",
       "order": 10,
-      "lastCommitAt": "2026-11-18T17:14:46Z",
-      "dataUpdatedAt": "2026-11-18T17:14:38.805Z",
+      "lastCommitAt": "2026-11-19T17:22:05Z",
+      "dataUpdatedAt": "2026-11-19T17:21:58.016Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
       "summary": {
         "label": "19/22 源正常",
-        "detail": "今日 30 条"
+        "detail": "今日 34 条"
       },
       "visibility": "public",
       "privateRounds": 0
@@ -90,8 +90,8 @@
       ],
       "adapter": "repo-rank",
       "order": 20,
-      "lastCommitAt": "2026-11-18T19:33:36Z",
-      "dataUpdatedAt": "2026-11-18T19:25:30.509Z",
+      "lastCommitAt": "2026-11-19T04:21:02Z",
+      "dataUpdatedAt": "2026-11-19T04:14:37.757Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
@@ -138,7 +138,7 @@
       ],
       "adapter": "tech-radar",
       "order": 40,
-      "lastCommitAt": "2026-11-19T03:49:22Z",
+      "lastCommitAt": "2026-11-19T14:57:34Z",
       "dataUpdatedAt": "2026-11-19T03:49:21.291Z",
       "status": "ok",
       "statusLabel": "正常",
