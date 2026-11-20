@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T19:30:25.401Z",
+  "updatedAt": "2026-11-20T04:01:47.910Z",
   "sites": [
     {
       "id": "cs-lab",
@@ -90,8 +90,8 @@
       ],
       "adapter": "repo-rank",
       "order": 20,
-      "lastCommitAt": "2026-11-19T04:21:02Z",
-      "dataUpdatedAt": "2026-11-19T04:14:37.757Z",
+      "lastCommitAt": "2026-11-19T19:37:21Z",
+      "dataUpdatedAt": "2026-11-19T19:30:20.538Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,

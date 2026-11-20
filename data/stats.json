@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-11-19T19:30:25.401Z",
+  "updatedAt": "2026-11-20T04:01:47.910Z",
   "window": 30,
   "sites": {
     "station": {
-      "totalPv": 87,
-      "totalUv": 35,
-      "d30Pv": 87,
-      "d30Uv": 35,
+      "totalPv": 89,
+      "totalUv": 36,
+      "d30Pv": 89,
+      "d30Uv": 36,
       "series": [
         {
           "day": "2026-10-22",
@@ -126,13 +126,13 @@
         },
         {
           "day": "2026-11-20",
-          "pv": 0
+          "pv": 2
         }
       ],
       "top": [
         {
           "path": "/",
-          "pv": 63
+          "pv": 65
         },
         {
           "path": "/stats/",
@@ -153,10 +153,10 @@
       ]
     },
     "cs-lab": {
-      "totalPv": 292,
-      "totalUv": 76,
-      "d30Pv": 292,
-      "d30Uv": 76,
+      "totalPv": 295,
+      "totalUv": 78,
+      "d30Pv": 295,
+      "d30Uv": 78,
       "series": [
         {
           "day": "2026-10-22",
@@ -276,7 +276,7 @@
         },
         {
           "day": "2026-11-20",
-          "pv": 0
+          "pv": 3
         }
       ],
       "top": [
@@ -290,7 +290,7 @@
         },
         {
           "path": "/cs-lab/data-structures/",
-          "pv": 33
+          "pv": 34
         },
         {
           "path": "/cs-lab/database/",
@@ -298,7 +298,7 @@
         },
         {
           "path": "/cs-lab/algorithms/sorting/bubble-sort/",
-          "pv": 13
+          "pv": 14
         },
         {
           "path": "/cs-lab/algorithms/sorting/quick-sort/",
@@ -341,15 +341,15 @@
           "pv": 4
         },
         {
+          "path": "/cs-lab/data-structures/bst/",
+          "pv": 4
+        },
+        {
           "path": "/cs-lab/data-structures/queue/",
           "pv": 4
         },
         {
           "path": "/cs-lab/algorithms/graph/dijkstra/",
-          "pv": 3
-        },
-        {
-          "path": "/cs-lab/data-structures/bst/",
           "pv": 3
         },
         {
@@ -505,10 +505,10 @@
       ]
     },
     "pulse-hub": {
-      "totalPv": 51,
-      "totalUv": 22,
-      "d30Pv": 51,
-      "d30Uv": 22,
+      "totalPv": 54,
+      "totalUv": 24,
+      "d30Pv": 54,
+      "d30Uv": 24,
       "series": [
         {
           "day": "2026-10-22",
@@ -628,13 +628,13 @@
         },
         {
           "day": "2026-11-20",
-          "pv": 0
+          "pv": 3
         }
       ],
       "top": [
         {
           "path": "/pulse-hub/",
-          "pv": 33
+          "pv": 36
         },
         {
           "path": "/pulse-hub/channel/finance/",
@@ -655,10 +655,10 @@
       ]
     },
     "repo-rank": {
-      "totalPv": 3,
-      "totalUv": 2,
-      "d30Pv": 3,
-      "d30Uv": 2,
+      "totalPv": 16,
+      "totalUv": 3,
+      "d30Pv": 16,
+      "d30Uv": 3,
       "series": [
         {
           "day": "2026-10-22",
@@ -778,13 +778,37 @@
         },
         {
           "day": "2026-11-20",
-          "pv": 0
+          "pv": 13
         }
       ],
       "top": [
         {
           "path": "/repo-rank/",
+          "pv": 5
+        },
+        {
+          "path": "/repo-rank/dev/",
           "pv": 3
+        },
+        {
+          "path": "/repo-rank/dev/java/",
+          "pv": 3
+        },
+        {
+          "path": "/repo-rank/dev/java/new/",
+          "pv": 2
+        },
+        {
+          "path": "/repo-rank/about/",
+          "pv": 1
+        },
+        {
+          "path": "/repo-rank/dev/java/active/",
+          "pv": 1
+        },
+        {
+          "path": "/repo-rank/sources/",
+          "pv": 1
         }
       ]
     },
@@ -928,7 +952,7 @@
     }
   },
   "total": {
-    "pv": 475,
-    "uv": 149
+    "pv": 496,
+    "uv": 155
   }
 }
