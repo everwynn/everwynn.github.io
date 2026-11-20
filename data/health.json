@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-15T11:03:12.490Z",
+  "updatedAt": "2026-11-20T13:38:45.498Z",
   "sites": {
     "cs-lab": {
       "status": "ok",
@@ -14,6 +14,10 @@
       "reason": null
     },
     "repo-rank": {
+      "status": "ok",
+      "reason": null
+    },
+    "shell-lab": {
       "status": "ok",
       "reason": null
     },

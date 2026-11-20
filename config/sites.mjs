@@ -44,6 +44,17 @@ export const sites = [
     order: 20,
   },
   {
+    id: 'shell-lab',
+    name: 'Shell Lab',
+    url: 'https://everwynn.github.io/shell-lab/',
+    repo: 'EverWynn/shell-lab',
+    category: 'learn',
+    description: '浏览器里的 Linux 命令练习场：分关卡练文件、文本与权限，纯前端模拟终端',
+    tech: ['Astro', 'Vue', 'Tailwind'],
+    adapter: 'commit',
+    order: 35,
+  },
+  {
     id: 'stroke-annotation-tool',
     name: 'Stroke Annotation Tool',
     url: 'https://everwynn.github.io/stroke-annotation-tool/',
