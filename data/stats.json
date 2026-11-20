@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-11-20T04:01:47.910Z",
+  "updatedAt": "2026-11-20T13:45:07.611Z",
   "window": 30,
   "sites": {
     "station": {
-      "totalPv": 89,
-      "totalUv": 36,
-      "d30Pv": 89,
-      "d30Uv": 36,
+      "totalPv": 92,
+      "totalUv": 37,
+      "d30Pv": 92,
+      "d30Uv": 37,
       "series": [
         {
           "day": "2026-10-22",
@@ -126,17 +126,17 @@
         },
         {
           "day": "2026-11-20",
-          "pv": 2
+          "pv": 5
         }
       ],
       "top": [
         {
           "path": "/",
-          "pv": 65
+          "pv": 67
         },
         {
           "path": "/stats/",
-          "pv": 14
+          "pv": 15
         },
         {
           "path": "/whimsy-hub/",
@@ -153,10 +153,10 @@
       ]
     },
     "cs-lab": {
-      "totalPv": 295,
-      "totalUv": 78,
-      "d30Pv": 295,
-      "d30Uv": 78,
+      "totalPv": 306,
+      "totalUv": 83,
+      "d30Pv": 306,
+      "d30Uv": 83,
       "series": [
         {
           "day": "2026-10-22",
@@ -276,17 +276,17 @@
         },
         {
           "day": "2026-11-20",
-          "pv": 3
+          "pv": 14
         }
       ],
       "top": [
         {
           "path": "/cs-lab/",
-          "pv": 53
+          "pv": 56
         },
         {
           "path": "/cs-lab/algorithms/",
-          "pv": 48
+          "pv": 51
         },
         {
           "path": "/cs-lab/data-structures/",
@@ -294,15 +294,15 @@
         },
         {
           "path": "/cs-lab/database/",
-          "pv": 22
+          "pv": 24
         },
         {
           "path": "/cs-lab/algorithms/sorting/bubble-sort/",
-          "pv": 14
+          "pv": 15
         },
         {
           "path": "/cs-lab/algorithms/sorting/quick-sort/",
-          "pv": 12
+          "pv": 13
         },
         {
           "path": "/cs-lab/design-patterns/",
@@ -313,11 +313,11 @@
           "pv": 10
         },
         {
-          "path": "/cs-lab/data-structures/stack/",
-          "pv": 8
+          "path": "/cs-lab/git-workflow/",
+          "pv": 9
         },
         {
-          "path": "/cs-lab/git-workflow/",
+          "path": "/cs-lab/data-structures/stack/",
           "pv": 8
         },
         {
@@ -952,7 +952,7 @@
     }
   },
   "total": {
-    "pv": 496,
-    "uv": 155
+    "pv": 510,
+    "uv": 161
   }
 }
