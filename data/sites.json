@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T04:00:39.063Z",
+  "updatedAt": "2026-11-21T18:01:53.734Z",
   "sites": [
     {
       "id": "cs-lab",
@@ -64,14 +64,14 @@
       ],
       "adapter": "pulse",
       "order": 10,
-      "lastCommitAt": "2026-11-20T16:56:55Z",
-      "dataUpdatedAt": "2026-11-20T16:56:49.400Z",
+      "lastCommitAt": "2026-11-21T16:08:20Z",
+      "dataUpdatedAt": "2026-11-21T16:08:15.035Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
       "summary": {
         "label": "19/22 源正常",
-        "detail": "今日 27 条"
+        "detail": "今日 1 条"
       },
       "visibility": "public",
       "privateRounds": 0
@@ -90,14 +90,14 @@
       ],
       "adapter": "repo-rank",
       "order": 20,
-      "lastCommitAt": "2026-11-20T19:15:35Z",
-      "dataUpdatedAt": "2026-11-20T19:08:19.565Z",
+      "lastCommitAt": "2026-11-21T15:40:24Z",
+      "dataUpdatedAt": "2026-11-21T15:32:59.167Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
       "summary": {
-        "label": "92 次查询",
-        "detail": "30 个分类"
+        "label": "108 次查询",
+        "detail": "32 个分类"
       },
       "visibility": "public",
       "privateRounds": 0
@@ -116,7 +116,7 @@
       ],
       "adapter": "commit",
       "order": 35,
-      "lastCommitAt": "2026-11-20T14:59:15Z",
+      "lastCommitAt": "2026-11-21T11:18:11Z",
       "dataUpdatedAt": null,
       "status": "ok",
       "statusLabel": "正常",
