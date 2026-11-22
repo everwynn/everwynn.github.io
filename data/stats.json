@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T03:15:45.426Z",
+  "updatedAt": "2026-11-22T18:33:48.590Z",
   "window": 30,
   "sites": {
     "station": {
@@ -8,10 +8,6 @@
       "d30Pv": 95,
       "d30Uv": 39,
       "series": [
-        {
-          "day": "2026-10-24",
-          "pv": 0
-        },
         {
           "day": "2026-10-25",
           "pv": 0
@@ -127,6 +123,10 @@
         {
           "day": "2026-11-22",
           "pv": 0
+        },
+        {
+          "day": "2026-11-23",
+          "pv": 0
         }
       ],
       "top": [
@@ -153,15 +153,11 @@
       ]
     },
     "cs-lab": {
-      "totalPv": 337,
-      "totalUv": 94,
-      "d30Pv": 337,
-      "d30Uv": 94,
+      "totalPv": 353,
+      "totalUv": 100,
+      "d30Pv": 353,
+      "d30Uv": 100,
       "series": [
-        {
-          "day": "2026-10-24",
-          "pv": 0
-        },
         {
           "day": "2026-10-25",
           "pv": 0
@@ -276,17 +272,21 @@
         },
         {
           "day": "2026-11-22",
-          "pv": 11
+          "pv": 25
+        },
+        {
+          "day": "2026-11-23",
+          "pv": 2
         }
       ],
       "top": [
         {
-          "path": "/cs-lab/",
-          "pv": 58
+          "path": "/cs-lab/algorithms/",
+          "pv": 62
         },
         {
-          "path": "/cs-lab/algorithms/",
-          "pv": 58
+          "path": "/cs-lab/",
+          "pv": 59
         },
         {
           "path": "/cs-lab/data-structures/",
@@ -294,23 +294,23 @@
         },
         {
           "path": "/cs-lab/database/",
-          "pv": 25
+          "pv": 26
         },
         {
           "path": "/cs-lab/algorithms/sorting/bubble-sort/",
-          "pv": 17
+          "pv": 21
+        },
+        {
+          "path": "/cs-lab/algorithms/sorting/quick-sort/",
+          "pv": 14
         },
         {
           "path": "/cs-lab/design-patterns/",
           "pv": 14
         },
         {
-          "path": "/cs-lab/algorithms/sorting/quick-sort/",
-          "pv": 13
-        },
-        {
           "path": "/cs-lab/git-workflow/",
-          "pv": 11
+          "pv": 12
         },
         {
           "path": "/cs-lab/algorithms/graph/bfs/",
@@ -337,20 +337,20 @@
           "pv": 5
         },
         {
+          "path": "/cs-lab/algorithms/sorting/selection-sort/",
+          "pv": 5
+        },
+        {
           "path": "/cs-lab/data-structures/bst/",
           "pv": 5
         },
         {
-          "path": "/cs-lab/algorithms/sorting/selection-sort/",
+          "path": "/cs-lab/algorithms/graph/dijkstra/",
           "pv": 4
         },
         {
           "path": "/cs-lab/data-structures/queue/",
           "pv": 4
-        },
-        {
-          "path": "/cs-lab/algorithms/graph/dijkstra/",
-          "pv": 3
         },
         {
           "path": "/cs-lab/algorithms/graph/kruskal/",
@@ -368,10 +368,6 @@
       "d30Pv": 30,
       "d30Uv": 7,
       "series": [
-        {
-          "day": "2026-10-24",
-          "pv": 0
-        },
         {
           "day": "2026-10-25",
           "pv": 0
@@ -487,6 +483,10 @@
         {
           "day": "2026-11-22",
           "pv": 0
+        },
+        {
+          "day": "2026-11-23",
+          "pv": 0
         }
       ],
       "top": [
@@ -510,10 +510,6 @@
       "d30Pv": 54,
       "d30Uv": 24,
       "series": [
-        {
-          "day": "2026-10-24",
-          "pv": 0
-        },
         {
           "day": "2026-10-25",
           "pv": 0
@@ -629,6 +625,10 @@
         {
           "day": "2026-11-22",
           "pv": 0
+        },
+        {
+          "day": "2026-11-23",
+          "pv": 0
         }
       ],
       "top": [
@@ -660,10 +660,6 @@
       "d30Pv": 17,
       "d30Uv": 4,
       "series": [
-        {
-          "day": "2026-10-24",
-          "pv": 0
-        },
         {
           "day": "2026-10-25",
           "pv": 0
@@ -779,6 +775,10 @@
         {
           "day": "2026-11-22",
           "pv": 0
+        },
+        {
+          "day": "2026-11-23",
+          "pv": 0
         }
       ],
       "top": [
@@ -818,10 +818,6 @@
       "d30Pv": 12,
       "d30Uv": 7,
       "series": [
-        {
-          "day": "2026-10-24",
-          "pv": 0
-        },
         {
           "day": "2026-10-25",
           "pv": 0
@@ -937,6 +933,10 @@
         {
           "day": "2026-11-22",
           "pv": 0
+        },
+        {
+          "day": "2026-11-23",
+          "pv": 0
         }
       ],
       "top": [
@@ -952,7 +952,7 @@
     }
   },
   "total": {
-    "pv": 545,
-    "uv": 175
+    "pv": 561,
+    "uv": 181
   }
 }
