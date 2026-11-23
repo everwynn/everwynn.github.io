@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T18:33:48.590Z",
+  "updatedAt": "2026-11-23T03:45:12.026Z",
   "window": 30,
   "sites": {
     "station": {
@@ -153,10 +153,10 @@
       ]
     },
     "cs-lab": {
-      "totalPv": 353,
-      "totalUv": 100,
-      "d30Pv": 353,
-      "d30Uv": 100,
+      "totalPv": 380,
+      "totalUv": 104,
+      "d30Pv": 380,
+      "d30Uv": 104,
       "series": [
         {
           "day": "2026-10-25",
@@ -276,21 +276,21 @@
         },
         {
           "day": "2026-11-23",
-          "pv": 2
+          "pv": 29
         }
       ],
       "top": [
         {
           "path": "/cs-lab/algorithms/",
-          "pv": 62
+          "pv": 68
         },
         {
           "path": "/cs-lab/",
-          "pv": 59
+          "pv": 62
         },
         {
           "path": "/cs-lab/data-structures/",
-          "pv": 37
+          "pv": 42
         },
         {
           "path": "/cs-lab/database/",
@@ -301,16 +301,16 @@
           "pv": 21
         },
         {
+          "path": "/cs-lab/design-patterns/",
+          "pv": 15
+        },
+        {
           "path": "/cs-lab/algorithms/sorting/quick-sort/",
           "pv": 14
         },
         {
-          "path": "/cs-lab/design-patterns/",
-          "pv": 14
-        },
-        {
           "path": "/cs-lab/git-workflow/",
-          "pv": 12
+          "pv": 13
         },
         {
           "path": "/cs-lab/algorithms/graph/bfs/",
@@ -329,7 +329,15 @@
           "pv": 7
         },
         {
+          "path": "/cs-lab/algorithms/graph/kruskal/",
+          "pv": 6
+        },
+        {
           "path": "/cs-lab/algorithms/sorting/shell-sort/",
+          "pv": 6
+        },
+        {
+          "path": "/cs-lab/data-structures/bst/",
           "pv": 6
         },
         {
@@ -341,24 +349,16 @@
           "pv": 5
         },
         {
-          "path": "/cs-lab/data-structures/bst/",
-          "pv": 5
+          "path": "/cs-lab/algorithms/graph/dijkstra/",
+          "pv": 4
         },
         {
-          "path": "/cs-lab/algorithms/graph/dijkstra/",
+          "path": "/cs-lab/algorithms/searching/linear-search/",
           "pv": 4
         },
         {
           "path": "/cs-lab/data-structures/queue/",
           "pv": 4
-        },
-        {
-          "path": "/cs-lab/algorithms/graph/kruskal/",
-          "pv": 3
-        },
-        {
-          "path": "/cs-lab/algorithms/sorting/insertion-sort/",
-          "pv": 3
         }
       ]
     },
@@ -952,7 +952,7 @@
     }
   },
   "total": {
-    "pv": 561,
-    "uv": 181
+    "pv": 588,
+    "uv": 185
   }
 }
