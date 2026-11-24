@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-11-23T22:42:04.301Z",
+  "updatedAt": "2026-11-24T06:58:52.696Z",
   "window": 30,
   "sites": {
     "station": {
-      "totalPv": 96,
-      "totalUv": 40,
-      "d30Pv": 96,
-      "d30Uv": 40,
+      "totalPv": 97,
+      "totalUv": 41,
+      "d30Pv": 97,
+      "d30Uv": 41,
       "series": [
         {
           "day": "2026-10-26",
@@ -126,13 +126,13 @@
         },
         {
           "day": "2026-11-24",
-          "pv": 1
+          "pv": 2
         }
       ],
       "top": [
         {
           "path": "/",
-          "pv": 71
+          "pv": 72
         },
         {
           "path": "/stats/",
@@ -153,10 +153,10 @@
       ]
     },
     "cs-lab": {
-      "totalPv": 386,
-      "totalUv": 106,
-      "d30Pv": 386,
-      "d30Uv": 106,
+      "totalPv": 413,
+      "totalUv": 113,
+      "d30Pv": 413,
+      "d30Uv": 113,
       "series": [
         {
           "day": "2026-10-26",
@@ -276,33 +276,33 @@
         },
         {
           "day": "2026-11-24",
-          "pv": 0
+          "pv": 27
         }
       ],
       "top": [
         {
           "path": "/cs-lab/algorithms/",
-          "pv": 68
+          "pv": 73
         },
         {
           "path": "/cs-lab/",
-          "pv": 66
+          "pv": 68
         },
         {
           "path": "/cs-lab/data-structures/",
-          "pv": 42
+          "pv": 47
         },
         {
           "path": "/cs-lab/database/",
-          "pv": 26
+          "pv": 27
         },
         {
           "path": "/cs-lab/algorithms/sorting/bubble-sort/",
-          "pv": 21
+          "pv": 24
         },
         {
           "path": "/cs-lab/design-patterns/",
-          "pv": 15
+          "pv": 16
         },
         {
           "path": "/cs-lab/algorithms/sorting/quick-sort/",
@@ -310,10 +310,14 @@
         },
         {
           "path": "/cs-lab/git-workflow/",
-          "pv": 13
+          "pv": 14
         },
         {
           "path": "/cs-lab/algorithms/graph/bfs/",
+          "pv": 10
+        },
+        {
+          "path": "/cs-lab/data-structures/stack/",
           "pv": 10
         },
         {
@@ -321,11 +325,15 @@
           "pv": 8
         },
         {
-          "path": "/cs-lab/data-structures/stack/",
-          "pv": 8
+          "path": "/cs-lab/algorithms/graph/dfs/",
+          "pv": 7
         },
         {
-          "path": "/cs-lab/algorithms/graph/dfs/",
+          "path": "/cs-lab/algorithms/sorting/selection-sort/",
+          "pv": 7
+        },
+        {
+          "path": "/cs-lab/data-structures/bst/",
           "pv": 7
         },
         {
@@ -337,15 +345,11 @@
           "pv": 6
         },
         {
-          "path": "/cs-lab/data-structures/bst/",
-          "pv": 6
-        },
-        {
           "path": "/cs-lab/__smoke__/",
           "pv": 5
         },
         {
-          "path": "/cs-lab/algorithms/sorting/selection-sort/",
+          "path": "/cs-lab/data-structures/queue/",
           "pv": 5
         },
         {
@@ -354,10 +358,6 @@
         },
         {
           "path": "/cs-lab/algorithms/searching/linear-search/",
-          "pv": 4
-        },
-        {
-          "path": "/cs-lab/data-structures/queue/",
           "pv": 4
         }
       ]
@@ -505,10 +505,10 @@
       ]
     },
     "pulse-hub": {
-      "totalPv": 54,
-      "totalUv": 24,
-      "d30Pv": 54,
-      "d30Uv": 24,
+      "totalPv": 56,
+      "totalUv": 25,
+      "d30Pv": 56,
+      "d30Uv": 25,
       "series": [
         {
           "day": "2026-10-26",
@@ -628,13 +628,13 @@
         },
         {
           "day": "2026-11-24",
-          "pv": 0
+          "pv": 2
         }
       ],
       "top": [
         {
           "path": "/pulse-hub/",
-          "pv": 36
+          "pv": 37
         },
         {
           "path": "/pulse-hub/channel/finance/",
@@ -642,7 +642,7 @@
         },
         {
           "path": "/pulse-hub/channel/ai/",
-          "pv": 6
+          "pv": 7
         },
         {
           "path": "/pulse-hub/channel/tech/",
@@ -952,7 +952,7 @@
     }
   },
   "total": {
-    "pv": 595,
-    "uv": 188
+    "pv": 625,
+    "uv": 197
   }
 }

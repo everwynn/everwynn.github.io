@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-23T22:42:04.301Z",
+  "updatedAt": "2026-11-24T06:58:52.696Z",
   "sites": [
     {
       "id": "cs-lab",
@@ -90,8 +90,8 @@
       ],
       "adapter": "repo-rank",
       "order": 20,
-      "lastCommitAt": "2026-11-23T03:52:51Z",
-      "dataUpdatedAt": "2026-11-23T03:45:20.417Z",
+      "lastCommitAt": "2026-11-23T22:50:45Z",
+      "dataUpdatedAt": "2026-11-23T22:42:26.943Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
@@ -161,8 +161,8 @@
       ],
       "adapter": "tech-radar",
       "order": 40,
-      "lastCommitAt": "2026-11-23T03:04:00Z",
-      "dataUpdatedAt": "2026-11-23T03:03:59.870Z",
+      "lastCommitAt": "2026-11-24T06:21:13Z",
+      "dataUpdatedAt": "2026-11-24T06:21:12.035Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
