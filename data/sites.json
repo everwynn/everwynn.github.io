@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-24T06:58:52.696Z",
+  "updatedAt": "2026-11-24T21:18:57.149Z",
   "sites": [
     {
       "id": "cs-lab",
@@ -38,14 +38,14 @@
       ],
       "adapter": "lucky",
       "order": 60,
-      "lastCommitAt": "2026-11-22T11:33:49Z",
-      "dataUpdatedAt": "2026-11-22T04:29:50.587Z",
+      "lastCommitAt": "2026-11-24T17:00:25Z",
+      "dataUpdatedAt": "2026-11-24T16:59:33.146Z",
       "status": "ok",
       "statusLabel": "正常",
-      "statusDetail": "最近成功 11-22",
+      "statusDetail": "最近成功 11-25",
       "summary": {
-        "label": "第 2026133 期",
-        "detail": "共 2091 期"
+        "label": "第 2026135 期",
+        "detail": "共 2093 期"
       },
       "visibility": "public",
       "privateRounds": 0
@@ -64,14 +64,14 @@
       ],
       "adapter": "pulse",
       "order": 10,
-      "lastCommitAt": "2026-11-23T20:11:53Z",
-      "dataUpdatedAt": "2026-11-23T20:11:47.640Z",
-      "status": "ok",
-      "statusLabel": "正常",
-      "statusDetail": null,
+      "lastCommitAt": "2026-11-24T09:50:59Z",
+      "dataUpdatedAt": "2026-11-24T09:50:52.947Z",
+      "status": "warn",
+      "statusLabel": "需关注",
+      "statusDetail": "18/22 源正常，1 个失败",
       "summary": {
-        "label": "19/22 源正常",
-        "detail": "今日 40 条"
+        "label": "18/22 源正常",
+        "detail": "今日 102 条"
       },
       "visibility": "public",
       "privateRounds": 0
@@ -90,8 +90,8 @@
       ],
       "adapter": "repo-rank",
       "order": 20,
-      "lastCommitAt": "2026-11-23T22:50:45Z",
-      "dataUpdatedAt": "2026-11-23T22:42:26.943Z",
+      "lastCommitAt": "2026-11-24T07:06:56Z",
+      "dataUpdatedAt": "2026-11-24T06:58:38.812Z",
       "status": "ok",
       "statusLabel": "正常",
       "statusDetail": null,
