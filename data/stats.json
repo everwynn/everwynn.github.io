@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-25T05:29:21.639Z",
+  "updatedAt": "2026-11-25T20:29:59.836Z",
   "window": 30,
   "sites": {
     "station": {
@@ -8,10 +8,6 @@
       "d30Pv": 100,
       "d30Uv": 44,
       "series": [
-        {
-          "day": "2026-10-27",
-          "pv": 0
-        },
         {
           "day": "2026-10-28",
           "pv": 0
@@ -127,6 +123,10 @@
         {
           "day": "2026-11-25",
           "pv": 2
+        },
+        {
+          "day": "2026-11-26",
+          "pv": 0
         }
       ],
       "top": [
@@ -153,15 +153,11 @@
       ]
     },
     "cs-lab": {
-      "totalPv": 428,
-      "totalUv": 120,
-      "d30Pv": 428,
-      "d30Uv": 120,
+      "totalPv": 433,
+      "totalUv": 122,
+      "d30Pv": 433,
+      "d30Uv": 122,
       "series": [
-        {
-          "day": "2026-10-27",
-          "pv": 0
-        },
         {
           "day": "2026-10-28",
           "pv": 0
@@ -276,7 +272,11 @@
         },
         {
           "day": "2026-11-25",
-          "pv": 12
+          "pv": 17
+        },
+        {
+          "day": "2026-11-26",
+          "pv": 0
         }
       ],
       "top": [
@@ -298,19 +298,19 @@
         },
         {
           "path": "/cs-lab/algorithms/sorting/bubble-sort/",
-          "pv": 24
+          "pv": 25
         },
         {
           "path": "/cs-lab/design-patterns/",
           "pv": 16
         },
         {
-          "path": "/cs-lab/algorithms/sorting/quick-sort/",
-          "pv": 15
+          "path": "/cs-lab/git-workflow/",
+          "pv": 16
         },
         {
-          "path": "/cs-lab/git-workflow/",
-          "pv": 14
+          "path": "/cs-lab/algorithms/sorting/quick-sort/",
+          "pv": 15
         },
         {
           "path": "/cs-lab/algorithms/graph/bfs/",
@@ -368,10 +368,6 @@
       "d30Pv": 30,
       "d30Uv": 7,
       "series": [
-        {
-          "day": "2026-10-27",
-          "pv": 0
-        },
         {
           "day": "2026-10-28",
           "pv": 0
@@ -487,6 +483,10 @@
         {
           "day": "2026-11-25",
           "pv": 0
+        },
+        {
+          "day": "2026-11-26",
+          "pv": 0
         }
       ],
       "top": [
@@ -510,10 +510,6 @@
       "d30Pv": 57,
       "d30Uv": 26,
       "series": [
-        {
-          "day": "2026-10-27",
-          "pv": 0
-        },
         {
           "day": "2026-10-28",
           "pv": 0
@@ -629,6 +625,10 @@
         {
           "day": "2026-11-25",
           "pv": 0
+        },
+        {
+          "day": "2026-11-26",
+          "pv": 0
         }
       ],
       "top": [
@@ -655,15 +655,11 @@
       ]
     },
     "repo-rank": {
-      "totalPv": 18,
-      "totalUv": 5,
-      "d30Pv": 18,
-      "d30Uv": 5,
+      "totalPv": 23,
+      "totalUv": 7,
+      "d30Pv": 23,
+      "d30Uv": 7,
       "series": [
-        {
-          "day": "2026-10-27",
-          "pv": 0
-        },
         {
           "day": "2026-10-28",
           "pv": 0
@@ -778,13 +774,17 @@
         },
         {
           "day": "2026-11-25",
+          "pv": 5
+        },
+        {
+          "day": "2026-11-26",
           "pv": 0
         }
       ],
       "top": [
         {
           "path": "/repo-rank/",
-          "pv": 7
+          "pv": 9
         },
         {
           "path": "/repo-rank/dev/",
@@ -795,11 +795,19 @@
           "pv": 3
         },
         {
+          "path": "/repo-rank/ai/",
+          "pv": 2
+        },
+        {
           "path": "/repo-rank/dev/java/new/",
           "pv": 2
         },
         {
           "path": "/repo-rank/about/",
+          "pv": 1
+        },
+        {
+          "path": "/repo-rank/ai/agent-tools/",
           "pv": 1
         },
         {
@@ -818,10 +826,6 @@
       "d30Pv": 12,
       "d30Uv": 7,
       "series": [
-        {
-          "day": "2026-10-27",
-          "pv": 0
-        },
         {
           "day": "2026-10-28",
           "pv": 0
@@ -937,6 +941,10 @@
         {
           "day": "2026-11-25",
           "pv": 0
+        },
+        {
+          "day": "2026-11-26",
+          "pv": 0
         }
       ],
       "top": [
@@ -952,7 +960,7 @@
     }
   },
   "total": {
-    "pv": 645,
-    "uv": 209
+    "pv": 655,
+    "uv": 213
   }
 }
