@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-11-26T20:13:49.127Z",
+  "updatedAt": "2026-11-27T05:06:15.487Z",
   "window": 30,
   "sites": {
     "station": {
-      "totalPv": 103,
-      "totalUv": 46,
-      "d30Pv": 103,
-      "d30Uv": 46,
+      "totalPv": 106,
+      "totalUv": 49,
+      "d30Pv": 106,
+      "d30Uv": 49,
       "series": [
         {
           "day": "2026-10-29",
@@ -126,37 +126,37 @@
         },
         {
           "day": "2026-11-27",
-          "pv": 2
+          "pv": 5
         }
       ],
       "top": [
         {
           "path": "/",
-          "pv": 76
+          "pv": 77
         },
         {
           "path": "/stats/",
-          "pv": 17
+          "pv": 18
         },
         {
           "path": "/whimsy-hub/",
           "pv": 5
         },
         {
-          "path": "/probe-retry",
+          "path": "/about/",
           "pv": 3
         },
         {
-          "path": "/about/",
-          "pv": 2
+          "path": "/probe-retry",
+          "pv": 3
         }
       ]
     },
     "cs-lab": {
-      "totalPv": 478,
-      "totalUv": 135,
-      "d30Pv": 478,
-      "d30Uv": 135,
+      "totalPv": 485,
+      "totalUv": 142,
+      "d30Pv": 485,
+      "d30Uv": 142,
       "series": [
         {
           "day": "2026-10-29",
@@ -276,25 +276,25 @@
         },
         {
           "day": "2026-11-27",
-          "pv": 1
+          "pv": 8
         }
       ],
       "top": [
         {
           "path": "/cs-lab/algorithms/",
-          "pv": 86
+          "pv": 87
         },
         {
           "path": "/cs-lab/",
-          "pv": 75
+          "pv": 76
         },
         {
           "path": "/cs-lab/data-structures/",
-          "pv": 53
+          "pv": 54
         },
         {
           "path": "/cs-lab/database/",
-          "pv": 28
+          "pv": 29
         },
         {
           "path": "/cs-lab/algorithms/sorting/bubble-sort/",
@@ -306,11 +306,11 @@
         },
         {
           "path": "/cs-lab/git-workflow/",
-          "pv": 17
+          "pv": 18
         },
         {
           "path": "/cs-lab/design-patterns/",
-          "pv": 16
+          "pv": 17
         },
         {
           "path": "/cs-lab/algorithms/graph/bfs/",
@@ -321,12 +321,12 @@
           "pv": 11
         },
         {
-          "path": "/cs-lab/algorithms/graph/dijkstra/",
+          "path": "/cs-lab/algorithms/graph/dfs/",
           "pv": 9
         },
         {
-          "path": "/cs-lab/algorithms/graph/dfs/",
-          "pv": 8
+          "path": "/cs-lab/algorithms/graph/dijkstra/",
+          "pv": 9
         },
         {
           "path": "/cs-lab/algorithms/sorting/heap-sort/",
@@ -363,10 +363,10 @@
       ]
     },
     "lucky-hub": {
-      "totalPv": 74,
-      "totalUv": 10,
-      "d30Pv": 74,
-      "d30Uv": 10,
+      "totalPv": 79,
+      "totalUv": 11,
+      "d30Pv": 79,
+      "d30Uv": 11,
       "series": [
         {
           "day": "2026-10-29",
@@ -486,13 +486,13 @@
         },
         {
           "day": "2026-11-27",
-          "pv": 28
+          "pv": 33
         }
       ],
       "top": [
         {
           "path": "/lucky-hub/",
-          "pv": 32
+          "pv": 33
         },
         {
           "path": "/lucky-hub/generate/",
@@ -500,11 +500,11 @@
         },
         {
           "path": "/lucky-hub/about/",
-          "pv": 13
+          "pv": 15
         },
         {
           "path": "/lucky-hub/analysis/",
-          "pv": 6
+          "pv": 8
         }
       ]
     },
@@ -964,7 +964,7 @@
     }
   },
   "total": {
-    "pv": 763,
-    "uv": 235
+    "pv": 778,
+    "uv": 246
   }
 }
