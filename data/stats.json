@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-27T19:59:55.471Z",
+  "updatedAt": "2026-11-28T04:45:41.535Z",
   "window": 30,
   "sites": {
     "station": {
@@ -153,10 +153,10 @@
       ]
     },
     "cs-lab": {
-      "totalPv": 493,
-      "totalUv": 146,
-      "d30Pv": 493,
-      "d30Uv": 146,
+      "totalPv": 494,
+      "totalUv": 147,
+      "d30Pv": 494,
+      "d30Uv": 147,
       "series": [
         {
           "day": "2026-10-30",
@@ -276,7 +276,7 @@
         },
         {
           "day": "2026-11-28",
-          "pv": 0
+          "pv": 1
         }
       ],
       "top": [
@@ -298,7 +298,7 @@
         },
         {
           "path": "/cs-lab/algorithms/sorting/quick-sort/",
-          "pv": 26
+          "pv": 27
         },
         {
           "path": "/cs-lab/algorithms/sorting/bubble-sort/",
@@ -964,7 +964,7 @@
     }
   },
   "total": {
-    "pv": 786,
-    "uv": 250
+    "pv": 787,
+    "uv": 251
   }
 }
